@@ -1,2 +1,2 @@
-# Final-Project-MealDecide
+# unitled-final-project-meal-decide
  Application interacts to user based on food-oriented likes and dislikes aggregated through user survey.  - Application either recommends restaurants near the user or recipes which can be made at home  - Recipes recommended may account for survey specifications that include ingredients possessed and time constraints that the user desires.  - Restaurant recommendations may include a wheel-spin feature to help decide choice of restaurants for what to do when users just cannot decide where to go.  - Through the use of external APIs or scraping features, the restaurants and recipes may be obtained.  - User may be able to adjust or rerun the survey to solidify category recommendations.
