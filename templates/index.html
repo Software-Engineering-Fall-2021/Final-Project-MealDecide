@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='/index.css') }}">
+</head>
+<body>
+    <div class="landing-page">
+        <h1>Team Untitled Landing Page Sprint 5</h1> <br>
+
+        <button>DINE IN</button>
+        <button>TAKE OUT</button>
+        <button>RECIPE</button> <br> <br>
+
+        <form action="{{ url_for('server_app') }}" id="entry-form", method='POST'>
+            ENTER YOUR AREA CODE: <input type='number' name='age' value="{{distance}}"><br> <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>
