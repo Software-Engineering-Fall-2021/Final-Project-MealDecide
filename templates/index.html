@@ -4,20 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>Meal Decide Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='/index.css') }}">
 </head>
 <body>
-    <div class="landing-page">
-        <h1>Team Untitled Landing Page Sprint 5</h1> <br>
-
-        <div class="buttons">
-            <a href="{{ url_for('proposal_btn') }}" class="button">PROPOSAL</a> <br>
-            <a href="{{ url_for('proposal_btn') }}" class="button">TAKE OUT</a> <br>
-            <a href="{{ url_for('proposal_btn') }}" class="button">DINE IN</a> <br>
-            <a href="{{ url_for('proposal_btn') }}" class="button">RECIPE</a> <br>
-            <a href="credits.html" class="button">Credits</a> <br> <br>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="{{ url_for('proposal_btn') }}">About Us</a>
+        <a href="{{ url_for('credits_btn') }}">Credits</a>
+        
+        
+      </div>
+    <div class="title-container">
+        <div class="title-header">
+            <h1><br>Meal Decide</h1>
         </div>
+    </div>
+
+    <div class="landing-page">
+        
+        <h2>Are you looking to...</h2> <br>
+        <br />
+        <div class="buttons">
+            <a href="{{ url_for('proposal_btn') }}"><input type="button" value="GO OUT">
+            <a href="{{ url_for('proposal_btn') }}"><input type="button" value="DINE IN">
+        </div>
+        <br />
+        <br />
+        <br />
 
         <form action="{{ url_for('server_app') }}" id="entry-form", method='POST'>
             ENTER YOUR AREA CODE: <input type='number' name='age' value="{{distance}}"><br> <br>

@@ -21,6 +21,10 @@ survery_core_questions = {
 def proposal_btn():
     return render_template('proposal.html')
 
+@app.route("/credit_btn", methods=["GET", "POST"])
+def credits_btn():
+    return render_template('credits.html')
+
 @app.route("/")
 def index():
     return render_template("index.html")

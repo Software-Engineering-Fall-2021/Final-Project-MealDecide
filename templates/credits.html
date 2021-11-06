@@ -8,18 +8,22 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='/index.css') }}">
 </head>
 <body>
-    <div class="proposal">
-        <h1>Meal Decide</h1>
-
-        <div class="buttons">
-            <a href="{{ url_for('return_home_btn') }}" class="button">LANDING PAGE</a> <br>
-            <a href="{{ url_for('proposal_btn') }}" class="button">TAKE OUT</a> <br>
-            <a href="{{ url_for('proposal_btn') }}" class="button">DINE IN</a> <br>
-            <a href="{{ url_for('proposal_btn') }}" class="button">RECIPE</a> <br>
-            <a href="credits.html" class="button">Credits</a> <br> <br>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="{{ url_for('proposal_btn') }}">About Us</a>
+        <a href="{{ url_for('credits_btn') }}">Credits</a>
+        
+        
+      </div>
+    <div class="title-container">
+        <div class="title-header">
+            <h1><br>Meal Decide</h1>
         </div>
+    </div>
 
-        <h2>Devoplers</h2>
+    <h2><br>Project Credits</h2>
+    <div class="credits">
+        <h3>Developers</h3>
         <ul id="team-names">
             <li>Luke Freeman</li>
             <li>Joss Murray</li>
@@ -28,19 +32,19 @@
 
         <h3>Tools Used</h3>
         <ul>
-            <li></li>
             <li><a href="https://getbootstrap.com/" >bootstrap</a> <br></li>
             <li><a href="Tool URL" >NAME</a> <br></li>
             <li><a href="Tool URL" >NAME</a> <br></li>
         </ul>
 
-        <h3>API's  Used</h3>
+        <h3>APIs Anticipated for Project Use</h3>
         <ul>
             <li> <a href="https://developer.edamam.com/edamam-recipe-api" >Edamam</a> <br></li>
-            <li><a href="API URL" >NAME</a> <br></li>
-            <li><a href="API URL" >NAME</a> <br></li>
+            <li><a href="https://www.themealdb.com/" >TheMealDB</a> <br></li>
+            <li><a href="https://developers.google.com/maps/documentation/places/web-service/overview" >Google Places API</a> <br></li>
+            <li><a href="https://rapidapi.com/apidojo/api/travel-advisor/" >TripAdvisor Travel API</a> <br></li>
         </ul>
-
+    </div>
 
     </div>
 </body>
