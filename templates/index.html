@@ -11,15 +11,22 @@
     <div class="landing-page">
         <h1>Team Untitled Landing Page Sprint 5</h1> <br>
 
-        <button>DINE IN</button>
-        <button>TAKE OUT</button>
-        <button>RECIPE</button> <br> <br>
+        <div class="buttons">
+            <a href="{{ url_for('proposal_btn') }}" class="button">PROPOSAL</a> <br>
+            <a href="{{ url_for('proposal_btn') }}" class="button">TAKE OUT</a> <br>
+            <a href="{{ url_for('proposal_btn') }}" class="button">DINE IN</a> <br>
+            <a href="{{ url_for('proposal_btn') }}" class="button">RECIPE</a> <br> <br>
+        </div>
 
         <form action="{{ url_for('server_app') }}" id="entry-form", method='POST'>
             ENTER YOUR AREA CODE: <input type='number' name='age' value="{{distance}}"><br> <br>
             <input type="submit" value="Submit">
         </form>
     </div>
+
+    <script>
+        
+    </script>
 
 </body>
 </html>

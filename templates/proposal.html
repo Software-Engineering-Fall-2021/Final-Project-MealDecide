@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='/index.css') }}">
+</head>
+<body>
+    <div class="proposal">
+        <h1>Meal Decide</h1>
+
+        <div class="buttons">
+            <a href="{{ url_for('return_home_btn') }}" class="button">LANDING PAGE</a> <br>
+            <a href="{{ url_for('proposal_btn') }}" class="button">TAKE OUT</a> <br>
+            <a href="{{ url_for('proposal_btn') }}" class="button">DINE IN</a> <br>
+            <a href="{{ url_for('proposal_btn') }}" class="button">RECIPE</a> <br> <br>
+        </div>
+
+        <h2>Team Members</h2>
+        <ul id="team-names">
+            <li>Luke Freeman</li>
+            <li>Joss Murray</li>
+            <li>Cortez Banks</li>
+        </ul>
+
+        <h3>Application Overview</h3>
+
+        <p>This application will allow the user to take a survey/quiz in order to tell the application what they want to eat or do not want to eat. The user 
+            will enter their zip code, tendencies, price range, and answer a set of questions. The application will then return 3-5 restraunts in their area that 
+            fit within their criteria. Along with that, the user will be able to choose between wanting fast food, chains restraunts, cheap, sit down, carry out, 
+            etc. The user will also have the option to get recipes based on what they have available to them. These questions will revolve around what kind of kitchen the 
+            user has and how much time they are willing to spend. 
+        </p>
+
+        <h3>Technology Overview</h3>
+        <ul>
+            <li>Python</li>
+            <li>Flask</li>
+            <li>JavaScript</li>
+            <li>AJAX</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Azure</li>
+        </ul>
+
+        <h3>Feature List</h3>
+        <ul>
+            <li>Survery/Quiz to find user likes and dislikes</li>
+            <li>Location based around user entering zipcode</li>
+            <li>Price range</li>
+            <li>Ability to return either 3-5 restraunts or recipes that fit the users needs</li>
+            <li>Ability to link out to restraunts websites</li>
+        </ul>
+
+        <h3>Future Feature List</h3>
+        <ul>
+            <li>Ability to show user where to buy ingredients</li>
+            <li>Ability to place order using instacart for groceries based on ingredients</li>
+            <li>Ability to place order to restraunts from our app</li>
+            <li>Ability to share with friends or family members, having multiple people take the quiz and finding something for everybody</li>
+        </ul>
+
+        <h3>Basic Technical Features</h3>
+        <ul>
+            <li>Agile based planning and grooming</li>
+            <li>Basic software development life cycle things</li>
+            <li>Teamwork</li>
+            <li>Azure based hosting</li>
+            <li>Agile development and iterations</li>
+        </ul>
+
+        <h3>Advanced Technical Features</h3>
+        <ul>
+            <li>Flask</li>
+            <li>Python</li>
+            <li>External API use</li>
+            <li>HTML/CSS bootstrap</li>
+            <li>Hosting flask through azure</li>
+            <li>AJAX calls</li>
+        </ul>
+
+        <h3>Proposal Last Updated November 6th 2021</h3>
+    </div>
+</body>
+</html>

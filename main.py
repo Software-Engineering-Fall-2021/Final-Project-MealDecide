@@ -17,11 +17,18 @@ survery_core_questions = {
     # TODO: get all other kinds of food eventualy
 }
 
+@app.route("/proposal_btn", methods=["GET", "POST"])
+def proposal_btn():
+    return render_template('proposal.html')
+
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
+@app.route("/return_home_btn", methods=["GET", "POST"])
+def return_home_btn():
+    return render_template("index.html")
+    
 @app.route("/server_app", methods=["GET", "POST"])
 def server_app():
     # right now there aren't any back end functions so this will be empty

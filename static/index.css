@@ -1,3 +1,23 @@
 .landing-page {
     text-align: center;
 }
+
+.buttons {
+    text-align: center;
+    color: black;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.proposal {
+    text-align: center;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style-position: inside;
+}
