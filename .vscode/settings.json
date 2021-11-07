@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/373d1dbf-65b0-4904-bea1-abc9b0c80837/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/meal-decide",
-    "appService.deploySubpath": "."
-}

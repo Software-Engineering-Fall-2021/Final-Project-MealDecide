@@ -26,20 +26,13 @@
 
     <div class="landing-page">
         
+        <br />
         <h2>Are you looking to...</h2> <br>
-        <br />
-        <div class="buttons">
-            <a href="{{ url_for('proposal_btn') }}"><input type="button" value="GO OUT">
-            <a href="{{ url_for('proposal_btn') }}"><input type="button" value="DINE IN">
-        </div>
+        <a href="{{ url_for('go_out') }}"><input class="button" type="button" value="GO OUT">
+        <a href="{{ url_for('dine_in') }}"><input class="button" type="button" value="DINE IN">
         <br />
         <br />
         <br />
-
-        <form action="{{ url_for('server_app') }}" id="entry-form", method='POST'>
-            ENTER YOUR AREA CODE: <input type='number' name='age' value="{{distance}}"><br> <br>
-            <input type="submit" value="Submit">
-        </form>
     </div>
 
     <script>
