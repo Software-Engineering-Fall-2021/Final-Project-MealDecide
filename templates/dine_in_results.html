@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Decide - Dine In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/index.css') }}">
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="{{ url_for('proposal_btn') }}">About Us</a>
+        <a href="{{ url_for('credits_btn') }}">Credits</a>
+
+
+    </div>
+    <div class="title-container">
+        <div class="title-header">
+            <h1><br>Meal Decide</h1>
+        </div>
+    </div>
+
+    <div class="landing-page">
+
+        <br />
+        <h2>Dine In - Recipe Recommendation Finder</h2> <br>
+        <br />
+
+        <form action="{{ url_for('dine_in') }}" id="entry-form" , method='POST'>
+            <p>Please enter your area code: </p> <input type='number' name="zipcode" value="{{zipcode}}" min="00501"
+            max="99950"><br></p>
+            <p>Please enter your maximum desired price range ($ - $$$$): </p>
+            <div class="slidecontainer">
+                <input type="range" name="maxprice" value="{{maxprice}}" min="1" max="4" value="2" class="slider">
+                <p>$&nbsp;&nbsp;$$&nbsp;&nbsp;$$$&nbsp;&nbsp;$$$$</p>
+            </div>
+            <p>Please enter your minimum desired price range ($ - $$$$): </p>
+            <div class="slidecontainer">
+                <input type="range" name="minprice" value="{{minprice}}" min="1" max="4" value="2" class="slider">
+                <p>$&nbsp;&nbsp;$$&nbsp;&nbsp;$$$&nbsp;&nbsp;$$$$</p>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+
+    <script>
+    </script>
+
+</body>
+
+</html>

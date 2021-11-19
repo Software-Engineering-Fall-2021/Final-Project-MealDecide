@@ -5,17 +5,9 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 survey_core_questions = {
-    'distance': '',
-    'allergies': False,  # TODO: if allergies == True, then if allergy in food take it out
-    'italian': False,
-    'chinese': False,
-    'american': False,
-    'breakfast': False,
-    'thai': False,
-    'arab': False,
-    'indian': False,
-    'mexican': False
-    # TODO: get all other kinds of food eventualy
+    'price_max': '',
+    'price_min': '',
+    'zip_code': ''
 }
 
 
@@ -48,7 +40,6 @@ def go_out_location():
     state = None
     price_range = None
 
-    # Find age score.
     if zip_code is not None:
         location = _go_out.identify_entry(str(zip_code))
         print(str(location))
@@ -71,6 +62,10 @@ def go_out_location():
     else:
         price_range = "ERROR: PLEASE PROVIDE A VALID MAX AND MIN PRICE RANGE"
 
+    survey_core_questions['zip_code'] = zip_code
+    survey_core_questions['price_max'] = price_max
+    survey_core_questions['price_min'] = price_min
+
     return render_template('go_out.html',
                            latitude=latitude,
                            longitude=longitude,
@@ -79,7 +74,7 @@ def go_out_location():
                            price_range=price_range)
 
 
-@app.route("/dine_in", methods=["GET", "POST"])
+@app.route("/dine_in_location", methods=["GET", "POST"])
 def dine_in():
     return render_template('dine_in.html')
 
