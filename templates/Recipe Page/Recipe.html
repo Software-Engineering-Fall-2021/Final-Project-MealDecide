@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="hydrated" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8"><style data-styles="">ion-icon{visibility:hidden}.hydrated{visibility:inherit}</style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge&quot;">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <title> Recipe API </title>
+
+    <!--- import the webpage's stylesheet---->
+    <link href="bootstrap.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <!--- import the webpage's javascript file---->
+    <script src="bootstrap.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="popper.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="bootstrap_002.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+    <script src="script.js" defer="defer"></script>
+</head>
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="{{ url_for('proposal_btn') }}">About Us</a>
+    <a href="{{ url_for('credits_btn') }}">Credits</a>   
+  </div>
+<body>
+
+    <section>
+    
+        <div class="container">
+            <h1 class="brand"> Meal Decide</h1>
+           <!-- <form>
+                <input type="text" placeholder="Search you recipe...">
+                <ion-icon name="search-outline"></ion-icon>
+            </form>-->
+            
+            <div class="search-result"> 
+           
+               
+  
+                <!-- Create Form -->
+                <form id="form">
+             <h2 class="surveylogo">Meal Decide Survey Form</h2>
+                    <!-- Details -->
+                    <div class="form-control">
+                        <label for="name" id="label-name">
+                            Name
+                        </label>
+             
+                        <!-- Input Type Text -->
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+              
+                    <div class="form-control">
+                        <label for="email" id="label-email">
+                            Email
+                        </label>
+             
+                        <!-- Input Type Email-->
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+              
+              
+                    <div class="form-control1">
+                        <label for="mealType" id="label-mealType">
+                            Select a meal type?
+                        </label>
+                         
+                        <!-- Dropdown options -->
+                        <select name="mealType" id="mealType">
+                            <option value="breakfast" selected="selected">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                            <option value="snack">Snack</option>
+                            <option value="teatime">Teatime</option>
+                        </select>
+                    </div><br><br>
+
+            
+            
+                    <div class="form-control">
+                        <label for="cuisineType" id="label-cuisineType">
+                            Select a cuisine type?
+                        </label>
+                         
+                        <!-- Dropdown options -->
+                        <select name="cuisineType" id="cuisineType">
+                            <option value="American" selected="selected">American</option>
+                            <option value="Asian">Asian</option>
+                            <option value="British">British</option>
+                            <option value="Caribbean">Caribbean</option>
+                            <option value="Central Europe">Central Europe</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Eastern Europe">Eastern Europe</option>
+                            <option value="French">French</option>
+                            <option value="Indian">Indian</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Kosher">Kosher</option>
+                            <option value="Mediterranean">Mediterranean</option>
+                            <option value="Mexican">Mexican</option>
+                            <option value="Middle Eastern">Middle Eastern</option>
+                            <option value="Nordic">Nordic</option>
+                            <option value="South American">South American</option>
+                            <option value="South East Asian">South East Asian</option>
+                        </select>
+                    </div>
+            
+                   
+                    
+                    <div class="form-control">
+                        <label for="dishType" id="label-dishType">
+                            Select a dish type?
+                        </label>
+                         
+                        <!-- Dropdown options -->
+                        <select name="dishType" id="dishType">
+                            <option value="Alcohol-cocktail" selected="selected">Alcohol cocktail</option>
+                            <option value="Biscuits and cookies">Biscuits and cookies</option>
+                            <option value="Bread">Bread</option>
+                            <option value="Cereals">Cereals</option>
+                            <option value="Condiments and sauces">Condiments and sauces</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Drinks">Drinks</option>
+                            <option value="Desserts">Desserts</option>
+                            <option value="Egg">Egg</option>
+                            <option value="Main course">Main course</option>
+                            <option value="Omelet">Omelet</option>
+                            <option value="Pancake">Pancake</option>
+                            <option value="Preps">Preps</option>
+                            <option value="Preserve">Preserve</option>
+                            <option value="Salad">Salad</option>
+                            <option value="Sandwiches">Sandwiches</option>
+                            <option value="Soup">Soup</option>
+                            <option value="Starter">Starter</option>
+                        </select>
+                    </div>
+            
+            
+              
+                    <div class="form-control">
+                        <label>
+                            Select a meal type?
+                        </label>
+             
+                        <!-- Input Type Radio Button -->
+                        <label for="recommed-1">
+                            <input type="radio" id="recommed-1" name="recommed">Breakfast
+                        </label>
+                        <label for="recommed-2">
+                            <input type="radio" id="recommed-2" name="recommed" checked="checked">Lunch
+                        </label>
+                        <label for="recommed-3">
+                            <input type="radio" id="recommed-3" name="recommed">Dinner
+                        </label>
+                        <label for="recommed-3">
+                            <input type="radio" id="recommed-3" name="recommed">Dessert
+                        </label>
+                    </div>
+              
+                    <div class="form-control">
+                        <label>Health labels 
+                            <small>(Check all that apply)</small>
+                        </label>
+                        <!-- Input Type Checkbox -->
+                        <label for="inp-1">
+                            <input type="checkbox" name="alcohol-cocktail">Alcohol-Cocktail</label>
+                        <label for="inp-2">
+                            <input type="checkbox" name="alcohol-free">	Alcohol-Free</label>
+                        <label for="inp-3">
+                            <input type="checkbox" name="inp">Fish-Free</label>
+                        <label for="inp-4">
+                            <input type="checkbox" name="inp">Peanut-Free</label>
+                        <label for="inp-5">
+                            <input type="checkbox" name="inp">Shellfish-Free</label>
+                        <label for="inp-6">
+                            <input type="checkbox" name="inp">Tree-Nut-Free</label>
+                        <label for="inp-7">
+                            <input type="checkbox" name="inp">Vegetarian</label>
+                        <label for="inp-8">
+                            <input type="checkbox" name="inp">Wheat-Free</label>
+                        <label for="inp-9">
+                            <input type="checkbox" name="inp">Low Sugar</label>
+                        <label for="inp-10">
+                            <input type="checkbox" name="inp-11">Dairy-Free</label>
+            
+            
+            <!--name=	"	celery-free	"	>	Celery-Free	</input></label>
+            name=	"	crustacean-free	"	>	Crustcean-Free	</input></label>
+            name=	"	dairy-free	"	>	Dairy-Free	</input></label>
+            name=	"	DASH	"	>	DASH	</input></label>
+            name=	"	egg-free	"	>	Egg-Free	</input></label>
+            name=	"	fish-free	"	>	Fish-Free	</input></label>
+            name=	"	fodmap-free	"	>	FODMAP-Free	</input></label>
+            name=	"	gluten-free	"	>	Gluten-Free	</input></label>
+            name=	"	immuno-supportive	"	>	Immuno-Supportive	</input></label>
+            name=	"	keto-friendly	"	>	Keto-Friendly	</input></label>
+            name=	"	kidney-friendly	"	>	Kidney-Friendly	</input></label>
+            name=	"	kosher	"	>	Kosher	</input></label>
+            name=	"	low-potassium	"	>	Low Potassium	</input></label>
+            name=	"	low-sugar	"	>	Low Sugar	</input></label>
+            name=	"	lupine-free	"	>	Lupine-Free	</input></label>
+            name=	"	Mediterranean	"	>	Mediterranean	</input></label>
+            name=	"	mollusk-free	"	>	Mollusk-Free	</input></label>
+            name=	"	mustard-free	"	>	Mustard-Free	</input></label>
+            name=	"	No-oil-added	"	>	No oil added	</input></label>
+            name=	"	paleo	"	>	Paleo	</input></label>
+            name=	"	peanut-free	"	>	Peanut-Free	</input></label>
+            name=	"	pecatarian	"	>	Pescatarian	</input></label>
+            name=	"	pork-free	"	>	Pork-Free	</input></label>
+            name=	"	red-meat-free	"	>	Red-Meat-Free	</input></label>
+            name=	"	sesame-free	"	>	Sesame-Free	</input></label>
+            name=	"	shellfish-free	"	>	Shellfish-Free	</input></label>
+            name=	"	soy-free	"	>	Soy-Free	</input></label>
+            name=	"	sugar-conscious	"	>	Sugar-Conscious	</input></label>
+            name=	"	sulfite-free	"	>	Sulfite-Free	</input></label>
+            name=	"	tree-nut-free	"	>	Tree-Nut-Free	</input></label>
+            name=	"	vegan	"	>	Vegan	</input></label>
+            name=	"	vegetarian	"	>	Vegetarian	</input></label>
+            name=	"	wheat-free	"	>	Wheat-Free	</input></label>-->
+                    </div>
+
+                    <button type="submit" value="submit">
+                        Submit
+                    </button>
+                
+              </form></div>
+
+        </div>
+        </section>
+        <script type="module" src="ionicons.js"></script>
+        <script nomodule="" src="ionicons_002.js"></script>
+
+
+</body></html>

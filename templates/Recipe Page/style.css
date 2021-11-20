@@ -1,0 +1,195 @@
+/* CSS files add styling rules to your content 
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+*{
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+
+img{
+  width: 100%;
+  height: 100;
+  object-fit: cover;
+}
+
+html{
+  font-family: 'Nunito';
+  font-size: 12px;
+  font-weight: 600;
+}
+
+section{
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  background-color: rgb(26, 26, 27)
+}
+
+.container {  
+  width: 90%;
+  height:auto;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand{
+  text-align: center;
+  font-size: 4rem;
+  color: whitesmoke;
+  margin-bottom: 30px;
+}
+
+
+form{
+  width: 90%;
+  max-width: 700px;
+  margin: 50px auto;
+  background-color: rgb(223,223,223);
+  border-radius: 4px;
+  padding: 30px 20px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);  
+}
+
+form input{
+  width: 90%;
+  background-color: transparent;
+  padding: 10px;
+  border:none;
+  outline:none;
+  font-size: 2rem;
+  display: inline-block;
+}
+
+form-ion-icon{
+  width: 9%;
+  font-size: 3rem;
+  margin: -9px;
+  color: rgb(75, 75, 75);
+}
+.search-result{
+  margin-top: 50px;
+  width: 100%;
+  display: grid;
+  grid-gap: 25px;
+  grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
+}
+.item{
+  width:100;
+  border-radius: 8px;
+  background-color: rgb(37,37,37);
+  padding: 15px;
+  overflow: hidden;
+}
+item.img{
+  width: 100%;
+  height: 300px;
+  border-radius: 4px;
+}
+.item .flex-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item .title{
+  color: whitesmoke;
+  margin: 20px 10px 0 0;
+  font-size: 1.08rem;
+  font-weight: 400;
+}
+.view-button{
+  text-decoration: none;
+  text-align: center;
+  width: 130px;
+  padding: 10px 0;
+  background-color: #404041;
+  color: whitesmoke;
+  font-size: 1.4rem;
+  margin-top: 20px;
+  align-self: flex-start;
+}
+.item-data{
+  color:whitesmoke;
+  display: block;
+  margin-top: 10px;
+  font-size: 1.4rem;
+  letter-spacing: .05rem;
+  line-height: 2rem;
+}
+
+.carousel-item {
+  height: 600px;
+}
+/* Styling the Body element i.e. Color,
+ Font, Alignment */
+ /*body {
+  background-color: ##fcfaf9;    
+  font-family: Verdana;
+  text-align: center;
+}
+*/
+.surveylogo{
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(41, 39, 36);
+  margin-bottom: 30px;
+}
+/* Styling the Form (Color, Padding, Shadow) */
+/*form {
+  background-color: #fff;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px 20px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}*/
+
+/* Styling form-control Class */
+.form-control {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+/* Styling form-control Label */
+.form-control label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+/* Styling form-control input,
+select, textarea */
+ .form-control input,
+ .form-control select,
+ .form-control textarea{
+  border: 1px solid #777;
+  border-radius: 2px;
+  font-family: inherit;
+  padding: 10px;
+  display: block;
+  width: 95%;
+}
+
+/* Styling form-control Radio
+  button and Checkbox */
+  .form-control input[type="radio"],
+  .form-control input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  }
+
+  /* Styling Button */
+  button {
+  background-color: #c48105;
+  border: 1px solid #777;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 21px;
+  display: block;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
