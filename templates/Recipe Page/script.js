@@ -1,18 +1,22 @@
+
 const searchForm = document.querySelector('form');
+const feild = ["dietLabels","calories","cuisineType","mealType","dishType"]
 const searchResultDiv = document.querySelector('.search-result');
 const container = document.querySelector('.container');
 const Type="public";
 const APP_ID = '772bcae9';
 const APP_KEY = '8d3d0e383805de9a7ce3178e5d0605df';
+const field= ["uri","label","image","source","url","yeild","dietLabels","healthLabels","calories","totalTime","cuisineType","mealType","dishType"]
 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    searchQuery = e.target.querySelector('select','input','option').value;
+    searchQuery = e.target.querySelector('input','option').value;
     fetchAPI();
 });
 // An asynchronous function to fetch dta from the API.
 async function fetchAPI(){
-    const baseURL = `https://api.edamam.com/api/recipes/v2?type=${Type}&q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_KEY}&to=20`
+    const baseURL = `https://api.edamam.com/api/recipes/v2?type=${Type}&q=${searchQuery}&app_id=${APP_ID}&app_key=${APP_KEY}&field${field}&to=20`
+  //  `https://api.edamam.com/api/recipes/v2?type=public&q=field&app_id=772bcae9&app_key=8d3d0e383805de9a7ce3178e5d0605df&diet=low-fat&cuisineType=Indian&cuisineType=Italian&mealType=Breakfast&field=label&field=source&field=url&field=yield&field=dietLabels&field=cautions&field=calories&field=cuisineType&field=mealType&field=dishType`
     const response = await fetch (baseURL);
     console. log(response);
     const data = await response.json();
