@@ -1,8 +1,18 @@
 import webbrowser
 import _go_out
 from flask import Flask, request, render_template
+from flaskext.mysql import MySQL
 
 app = Flask(__name__)
+mysql = MySQL()
+app.config['MYSQL_DATABASE_USER'] = 'mealadmin@mealdecide'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'SoftwareEngineering2021!'
+app.config['MYSQL_DATABASE_HOST'] = 'mealdecide.mysql.database.azure.com'
+mysql.init_app(app)
+conn = mysql.connect()
+cursor =conn.cursor()
+cursor.execute("USE mealdecide;")
+
 
 survey_core_questions = {
     'price_max': '',
@@ -28,50 +38,127 @@ def go_out():
 
 @app.route("/go_out_location", methods=["GET", "POST"])
 def go_out_location():
-    zip_code = request.form.get("zipcode")
-    price_max = request.form.get("maxprice")
-    price_min = request.form.get("minprice")
 
-    print(str(f"Zip code {zip_code}") + " " + str(f"Price max {price_max}") + " " + str(f"Price min {price_min}"))
-
-    latitude = None
-    longitude = None
-    city = None
-    state = None
     price_range = None
 
-    if zip_code is not None:
-        location = _go_out.identify_entry(str(zip_code))
-        print(str(location))
-        if location is not None:
-            latitude = location["latitude"]
-            longitude = location["longitude"]
-            city = location["city"]
-            state = location["state"]
-    else:
-        latitude = "ERROR: PLEASE PROVIDE A VALID ZIPCODE"
-        longitude = "ERROR: PLEASE PROVIDE A VALID ZIPCODE"
-        city = "ERROR: PLEASE PROVIDE A VALID ZIPCODE"
-        state = "ERROR: PLEASE PROVIDE A VALID ZIPCODE"
+    price_max = request.form.get("maxprice")
+    price_min = request.form.get("minprice")
+    meal = request.form.get("meal")
+    context = request.form.get("context")
+    speed = request.form.get("speed")
+    cuisine = request.form.getlist("cuisine")
+    restrict = request.form.getlist("restrictions")
+
+    print(str(f"meal {meal}") + " " + str(f"context {context}") + " " + str(f"speed {speed}") + " " + str(f"cuisine {str(cuisine)}") + " " + str(f"restrictions {str(restrict)}") + " " + str(f"Price max {price_max}") + " " + str(f"Price min {price_min}"))
 
     if (price_max is not None) and (price_min is not None) and (price_max >= price_min):
-        price_range = (int(price_min) * "$") + "-" + (int(price_max) * "$")
+        price_range = (int(price_min) * "$") + " - " + (int(price_max) * "$")
     elif price_min > price_max:
         price_max = price_min
-        price_range = (int(price_min) * "$") + "-" + (int(price_max) * "$")
+        price_range = (int(price_min) * "$") + " - " + (int(price_max) * "$")
     else:
         price_range = "ERROR: PLEASE PROVIDE A VALID MAX AND MIN PRICE RANGE"
 
-    survey_core_questions['zip_code'] = zip_code
-    survey_core_questions['price_max'] = price_max
-    survey_core_questions['price_min'] = price_min
+    survey_core_questions['price_max'] = (int(price_max) * "$")
+    survey_core_questions['price_min'] = (int(price_min) * "$")
+    survey_core_questions['price_range'] = price_range
 
-    return render_template('go_out.html',
-                           latitude=latitude,
-                           longitude=longitude,
-                           state=state,
-                           city=city,
-                           price_range=price_range)
+    cuisine_search = []
+    subcategory_search = []
+    restriction_search = []
+
+    
+    for x in cuisine:
+        cuisine_search.append(x)
+
+    if meal == "BREAK":
+        cuisine_search.append(meal)
+        cuisine_search.append('AMERI')
+    elif meal == "DESRT":
+        cuisine_search.append(meal)
+    elif meal == "ALCOH":
+        cuisine_search.append(meal)
+    
+    if context == "FORMA":
+        cuisine_search.append(context)
+    if context == "CASUA":
+        cuisine_search.append(context)
+    
+    if speed == "SITDW":
+        subcategory_search.append("sit_down")
+        subcategory_search.append("cafe")
+    if speed == "FSTFD":
+        subcategory_search.append("fast_foo")
+        subcategory_search.append("cafe")
+    
+    for y in restrict:
+        restriction_search.append(y)
+
+    print("RESTRICTION SEARCH: " + str(restriction_search))
+    print("CUISINE SEARCH: " + str(cuisine_search))
+    print("SUBCATEGORY SEARCH: " + str(subcategory_search))
+    
+
+    restriction_results = []
+    if restriction_search:
+        for restr in restriction_search:
+            cursor.execute("SELECT * FROM restaurant WHERE restaurant_id IN (SELECT resta_id FROM restaurant_by_restriction WHERE restr_id IN (SELECT restriction_id FROM Restriction WHERE label=\"" + str(restr) + "\"));")
+            result = cursor.fetchall()
+            if result is not None:
+                restriction_results.append(result)
+
+    cuisine_results = []
+    for cuisine in cuisine_search:
+        if cuisine == "ALLAN":
+            cursor.execute("SELECT * FROM restaurant;")
+            result = cursor.fetchall()
+            print(str(result))
+            if result is not None:
+                cuisine_results.append(result)
+                break
+        else:
+            cursor.execute("SELECT * FROM restaurant WHERE restaurant_id IN (SELECT rest_id FROM restaurant_by_cuisine WHERE cuisi_id IN (SELECT cuisine_id FROM Cuisine WHERE category=\"" + str(cuisine) + "\"));")
+            result = cursor.fetchall()
+            if result is not None:
+                cuisine_results.append(result)
+    
+    subcategory_results = []
+    for subcat in subcategory_search:
+        cursor.execute("SELECT * FROM restaurant WHERE subcategory=\"" + str(subcat) + "\";")
+        result = cursor.fetchall()
+        if result is not None:
+            subcategory_results.append(result)
+    
+    price_results = []
+    cursor.execute("SELECT * FROM restaurant WHERE price_level LIKE \"" + str((int(price_min) * "$")) + "%\";")
+    result = cursor.fetchall()
+    if result is not None:
+        price_results.append(result)
+    print("SELECT * FROM restaurant WHERE price_level LIKE \"%" + str((int(price_max) * "$")) + "\";")
+    cursor.execute("SELECT * FROM restaurant WHERE price_level LIKE \"%" + str((int(price_max) * "$")) + "\";")
+    result = cursor.fetchall()
+    if result is not None:
+        price_results.append(result)
+    
+    print(str(subcategory_results))
+    print(str(price_results))
+    print(str(cuisine_results))
+    print(str(restriction_results))
+
+    if not restriction_results:
+        restriction_results = []
+        survey_core_questions['restriction_results'] = restriction_results
+    else:
+        survey_core_questions['restriction_results'] = restriction_results
+
+    survey_core_questions['cuisine_results'] = cuisine_results
+    survey_core_questions['subcategory_results'] = subcategory_results
+    survey_core_questions['price_results'] = price_results    
+    return render_template('go_out_results.html',
+                           cuisine_results = cuisine_results,
+                           price_results = price_results,
+                           subcategory_results = subcategory_results,
+                           restriction_results = restriction_results)
 
 
 @app.route("/dine_in_location", methods=["GET", "POST"])
