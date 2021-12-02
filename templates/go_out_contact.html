@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Decide - Restaurant Contact Info</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/index.css') }}">
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="{{ url_for('proposal_btn') }}">About Us</a>
+        <a href="{{ url_for('credits_btn') }}">Credits</a>
+
+
+    </div>
+    <div class="title-container">
+        <div class="title-header">
+            <h1><br>Meal Decide</h1>
+        </div>
+    </div>
+
+    <div class="landing-page">
+
+        <br />
+        <h2>Go Out - Restaurant Contact Info</h2> <br>
+        <br />
+
+        <br />
+        <h3>{{name}} Contact Info</h2> <br>
+            <p>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="small">Phone</th>
+                        <th class="large">Website</th>
+                        <th class="med">Email</th>
+                        <th class="large">Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in contact[0] %}
+                    <tr>
+                        <td>{{p.phone}}</td>
+                        <td>{{p.website}}</td>
+                        <td>{{p.email}}</td>
+                        <td>{{p.address}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </p>
+                    <script>
+                    </script>
+
+</body>
+
+</html>
