@@ -1,6 +1,8 @@
 from re import search
 import webbrowser
 import _go_out
+import random
+import math
 from flask import Flask, request, render_template
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
@@ -49,7 +51,7 @@ def go_out_contact():
 
     contact = _go_out.contact_info(restaurant_id, curs)
     print(str(contact))
-    
+
     survey_core_questions['contact'] = contact
     survey_core_questions['name'] = name
 
@@ -103,26 +105,70 @@ def go_out_location():
     # Execute search queries based on user-given criteria.
     results = _go_out.execute_search(cuisine_search, subcategory_search, restriction_search, price_min, price_max, curs)
     cuisine_results = results[0]
-    subcategory_results = results[1]
+    top_results = results[1]
     restriction_results = results[2]
     price_results = results[3]
+    cuisine_names = ",".join(results[4])
+    cuisine_names = cuisine_names.replace(" ", "-")
+    print(cuisine_names)
+    top_names = ",".join(results[5])
+    top_names = top_names.replace(" ", "-")
+    print(top_names)
+    restriction_names = ",".join(results[6])
+    restriction_names = restriction_names.replace(" ", "-")
+    print(restriction_names)
+    price_names = ",".join(results[7])
+    price_names = price_names.replace(" ", "-")
+    print(price_names)
 
+    # Check if restriction_results exists.
     if not restriction_results:
         restriction_results = []
         survey_core_questions['restriction_results'] = restriction_results
     else:
         survey_core_questions['restriction_results'] = restriction_results
-
+    
     survey_core_questions['cuisine_results'] = cuisine_results
-    survey_core_questions['subcategory_results'] = subcategory_results
+    survey_core_questions['top_results'] = top_results
     survey_core_questions['price_results'] = price_results    
     curs.close()
+
+    # Generate name list for each output table to pass to random wheel.
+    survey_core_questions['price_names'] = price_names
+    survey_core_questions['restriction_names'] = restriction_names
+    survey_core_questions['cuisine_names'] = cuisine_names
+    survey_core_questions['top_names'] = top_names
+
+
     return render_template('go_out_results.html',
                            cuisine_results = cuisine_results,
                            price_results = price_results,
-                           subcategory_results = subcategory_results,
-                           restriction_results = restriction_results)
+                           top_results = top_results,
+                           restriction_results = restriction_results,
+                           restriction_names = restriction_names,
+                           cuisine_names = cuisine_names,
+                           price_names = price_names,
+                           top_names = top_names)
 
+@app.route("/go_out_random", methods=["GET", "POST"])
+def go_out_random():
+    warnings = []
+
+    # Retrieve the request form information and load them into respective variables.
+    restaurants = request.form.get("restaurants")
+    print(restaurants)
+    choices = restaurants.split(",")
+    print(str(choices))
+    url_base = "https://pickerwheel.com/emb?choices="
+
+    randset = random.sample(choices, math.ceil(len(choices)/2))
+    print("HERE IS RANDSET:" + str(randset))
+    choices = ",".join(randset)
+    random_reference = url_base + choices
+
+    survey_core_questions['random_reference'] = random_reference
+    return render_template('go_out_random.html',
+                           random_reference = random_reference)
 
 @app.route("/dine_in_location", methods=["GET", "POST"])
 def dine_in():
@@ -138,50 +184,6 @@ def return_home_btn():
 def server_app():
     # right now there aren't any back end functions so this will be empty
     return render_template('index.html')
-
-
-def get_recipe_from_api():
-    # TODO: get final list of recipes after passing in the users tendencies and likes
-    pass
-
-
-def send_recipe_to_html():
-    # TODO: output recipe value to HTML page
-    pass
-
-
-def get_dine_in_from_api():
-    # TODO: get final list of dine in restraunts after passing in the users tendencies and likes
-    pass
-
-
-def send_dine_in_to_html():
-    # TODO: output dine in value to HTML page
-    pass
-
-
-def get_take_out_from_api():
-    # TODO: get list of take out fitting for the user
-    pass
-
-
-def send_take_out_to_html():
-    # TODO: output take out value to HTML page
-    pass
-
-
-def get_distance():
-    # TODO: get distance from the user. this will be the first and most important guide
-    # found by having the zip code
-    pass
-
-
-def configuration_commands():
-    pass
-
-
-def survery():
-    pass
 
 
 if __name__ == '__main__':
