@@ -42,23 +42,23 @@
              <h2 class="surveylogo">Meal Decide Survey Form</h2>
                     <!-- Details -->
                     <div class="form-control">
-                        <label for="name" id="label-name">
+            <!----  <label for="name" id="label-name">
                             Name
                         </label>
-             
+              -->
                         <!-- Input Type Text -->
-                        <input type="text" id="name" placeholder="Enter your name">
+               <!----   <input type="text" id="name" placeholder="Enter your name">
                     </div>
               
                     <div class="form-control">
                         <label for="email" id="label-email">
                             Email
-                        </label>
+                        </label> -->
              
                         <!-- Input Type Email-->
-                        <input type="email" id="email" placeholder="Enter your email">
+            <!----      <input type="email" id="email" placeholder="Enter your email">
                     </div>
-              
+                -->
               
                     <div class="form-control1">
                         <label for="mealType" id="label-mealType">
@@ -67,7 +67,8 @@
                          
                         <!-- Dropdown options -->
                         <select name="mealType" id="mealType">
-                            <option value="breakfast" selected="selected">Breakfast</option>
+                            <option selected value></option>
+                            <option value="breakfast">Breakfast</option>
                             <option value="lunch">Lunch</option>
                             <option value="dinner">Dinner</option>
                             <option value="snack">Snack</option>
@@ -84,6 +85,7 @@
                          
                         <!-- Dropdown options -->
                         <select name="cuisineType" id="cuisineType">
+                            <option selected value></option>
                             <option value="American" selected="selected">American</option>
                             <option value="Asian">Asian</option>
                             <option value="British">British</option>
@@ -114,6 +116,7 @@
                          
                         <!-- Dropdown options -->
                         <select name="dishType" id="dishType">
+                            <option selected value></option>
                             <option value="Alcohol-cocktail" selected="selected">Alcohol cocktail</option>
                             <option value="Biscuits and cookies">Biscuits and cookies</option>
                             <option value="Bread">Bread</option>
@@ -139,50 +142,49 @@
               
                     <div class="form-control">
                         <label>
-                            Select a meal type?
+                            Select any diet types?
                         </label>
-             
-                        <!-- Input Type Radio Button -->
-                        <label for="recommed-1">
-                            <input type="radio" id="recommed-1" name="recommed">Breakfast
-                        </label>
-                        <label for="recommed-2">
-                            <input type="radio" id="recommed-2" name="recommed" checked="checked">Lunch
-                        </label>
-                        <label for="recommed-3">
-                            <input type="radio" id="recommed-3" name="recommed">Dinner
-                        </label>
-                        <label for="recommed-3">
-                            <input type="radio" id="recommed-3" name="recommed">Dessert
-                        </label>
+                        <!-- Multi Dropdown options -->
+                        <select multiple="multiple" name="diet" id="diet">
+                            <option selected value></option>
+                            <option value="balanced">Balanced</option>
+                            <option value="high-fiber">High-Fiber</option>
+                            <option value="high-protein">High-Protein</option>
+                            <option value="low-carb">Low-Carb</option>
+                            <option value="low-fat">Low-Fat</option>
+                            <option value="low-sodium">Low-Sodium</option>
+                        </select>
                     </div>
+
               
                     <div class="form-control">
                         <label>Health labels 
                             <small>(Check all that apply)</small>
                         </label>
-                        <!-- Input Type Checkbox -->
-                        <label for="inp-1">
-                            <input type="checkbox" name="alcohol-cocktail">Alcohol-Cocktail</label>
-                        <label for="inp-2">
-                            <input type="checkbox" name="alcohol-free">	Alcohol-Free</label>
-                        <label for="inp-3">
-                            <input type="checkbox" name="inp">Fish-Free</label>
-                        <label for="inp-4">
-                            <input type="checkbox" name="inp">Peanut-Free</label>
-                        <label for="inp-5">
-                            <input type="checkbox" name="inp">Shellfish-Free</label>
-                        <label for="inp-6">
-                            <input type="checkbox" name="inp">Tree-Nut-Free</label>
-                        <label for="inp-7">
-                            <input type="checkbox" name="inp">Vegetarian</label>
-                        <label for="inp-8">
-                            <input type="checkbox" name="inp">Wheat-Free</label>
-                        <label for="inp-9">
-                            <input type="checkbox" name="inp">Low Sugar</label>
-                        <label for="inp-10">
-                            <input type="checkbox" name="inp-11">Dairy-Free</label>
-            
+                        <!-- Multi Dropdown options -->
+
+                        <select multiple="multiple" name="health" id="health">
+                            <option selected value></option>
+                            <option value="alcohol-cocktail">Alcohol-Cocktail</option>
+                            <option value="high-fiber">Alcohol-Free</option>
+                            <option value="high-protein">Fish-Free</option>
+                            <option value="low-carb">Peanut-Free</option>
+                            <option value="low-fat">Shellfish-Free</option>
+                            <option value="low-sodium">Tree-Nut-Free</option>
+                            <option value="low-fat">Vegetarian</option>
+                            <option value="low-sodium">Wheat-Free</option>
+                            <option value="low-fat">Low Sugar</option>
+                            <option value="low-sodium">Dairy-Free</option>
+                            <option value="low-fat">Shellfish-Free</option>
+                            <option value="low-sodium">Tree-Nut-Free</option>
+                            <option value="low-fat">Shellfish-Free</option>
+                            <option value="low-sodium">Tree-Nut-Free</option>
+                            <option value="low-fat">Shellfish-Free</option>
+                            <option value="low-sodium">Tree-Nut-Free</option>
+                            <option value="low-fat">Shellfish-Free</option>
+                            <option value="low-sodium">Tree-Nut-Free</option>
+                        </select>
+
             
             <!--name=	"	celery-free	"	>	Celery-Free	</input></label>
             name=	"	crustacean-free	"	>	Crustcean-Free	</input></label>
@@ -219,6 +221,15 @@
             name=	"	wheat-free	"	>	Wheat-Free	</input></label>-->
                     </div>
 
+                     <!-- Input Boxes -->
+                    <div>
+                       <label for="mcalories">Enter MIN/MAX CALORIES:</label> 
+                       <input class="form-control" minlength="0" name="calories" placeholder id= "mcalories" type="text" value>
+                    </div>
+                    <div>
+                        <label for="mtime">Enter Desired Prep Time (In Minutes)</label> 
+                        <input class="form-control" minlength="0" name="time" placeholder id= "mtime" type="text" value>
+                     </div>
                     <button type="submit" value="submit">
                         Submit
                     </button>
