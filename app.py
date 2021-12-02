@@ -18,9 +18,11 @@ survey_core_questions = {
     'zip_code': ''
 }
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route("/proposal_btn", methods=["GET", "POST"])
 def proposal_btn():
@@ -36,6 +38,7 @@ def credits_btn():
 def go_out():
     return render_template('go_out.html')
 
+
 @app.route("/go_out_contact", methods=["GET", "POST"])
 def go_out_contact():
     warnings = []
@@ -48,18 +51,17 @@ def go_out_contact():
     curs.execute("USE mealdecide;")
 
     contact = _go_out.contact_info(restaurant_id, curs)
-    print(str(contact))
-    
+
     survey_core_questions['contact'] = contact
     survey_core_questions['name'] = name
 
     return render_template('go_out_contact.html',
-                           contact = contact,
-                           name = name)
+                           contact=contact,
+                           name=name)
+
 
 @app.route("/go_out_location", methods=["GET", "POST"])
 def go_out_location():
-
     # Initialize potential warnings to pass and set price range to none.
     warnings = []
     price_range = None
@@ -74,7 +76,9 @@ def go_out_location():
     restrict = request.form.getlist("restrictions")
 
     # Print to check output.
-    print(str(f"Meal: {meal}") + " " + str(f"|| Context: {context}") + " " + str(f"|| Speed {speed}") + " " + str(f"|| Cuisine {str(cuisine)}") + " " + str(f"|| Restrictions {str(restrict)}") + " " + str(f"Price max {price_max}") + " " + str(f"Price min {price_min}"))
+    print(str(f"Meal: {meal}") + " " + str(f"|| Context: {context}") + " " + str(f"|| Speed {speed}") + " " + str(
+        f"|| Cuisine {str(cuisine)}") + " " + str(f"|| Restrictions {str(restrict)}") + " " + str(
+        f"Price max {price_max}") + " " + str(f"Price min {price_min}"))
 
     # Check the price input and set the range, append a warning if the max and min price input are not valid.
     price_result = _go_out.check_price(price_max, price_min)
@@ -83,7 +87,7 @@ def go_out_location():
     else:
         warnings.append(price_result)
         return render_template('go_out_warning.html',
-                           warnings = warnings)
+                               warnings=warnings)
 
     # Set survey core questions for price-related info.
     survey_core_questions['price_max'] = (int(price_max) * "$")
@@ -115,13 +119,13 @@ def go_out_location():
 
     survey_core_questions['cuisine_results'] = cuisine_results
     survey_core_questions['subcategory_results'] = subcategory_results
-    survey_core_questions['price_results'] = price_results    
+    survey_core_questions['price_results'] = price_results
     curs.close()
     return render_template('go_out_results.html',
-                           cuisine_results = cuisine_results,
-                           price_results = price_results,
-                           subcategory_results = subcategory_results,
-                           restriction_results = restriction_results)
+                           cuisine_results=cuisine_results,
+                           price_results=price_results,
+                           subcategory_results=subcategory_results,
+                           restriction_results=restriction_results)
 
 
 @app.route("/dine_in_location", methods=["GET", "POST"])
@@ -140,50 +144,6 @@ def server_app():
     return render_template('index.html')
 
 
-def get_recipe_from_api():
-    # TODO: get final list of recipes after passing in the users tendencies and likes
-    pass
-
-
-def send_recipe_to_html():
-    # TODO: output recipe value to HTML page
-    pass
-
-
-def get_dine_in_from_api():
-    # TODO: get final list of dine in restraunts after passing in the users tendencies and likes
-    pass
-
-
-def send_dine_in_to_html():
-    # TODO: output dine in value to HTML page
-    pass
-
-
-def get_take_out_from_api():
-    # TODO: get list of take out fitting for the user
-    pass
-
-
-def send_take_out_to_html():
-    # TODO: output take out value to HTML page
-    pass
-
-
-def get_distance():
-    # TODO: get distance from the user. this will be the first and most important guide
-    # found by having the zip code
-    pass
-
-
-def configuration_commands():
-    pass
-
-
-def survery():
-    pass
-
-
 if __name__ == '__main__':
-    webbrowser.open("http://127.0.0.1:5000")
-    app.run(host="127.0.0.1", port=5000)
+    webbrowser.open("http://127.0.0.1:5001")
+    app.run(host="127.0.0.1", port=5001)
