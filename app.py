@@ -20,9 +20,11 @@ survey_core_questions = {
     'zip_code': ''
 }
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route("/proposal_btn", methods=["GET", "POST"])
 def proposal_btn():
@@ -38,6 +40,7 @@ def credits_btn():
 def go_out():
     return render_template('go_out.html')
 
+
 @app.route("/go_out_contact", methods=["GET", "POST"])
 def go_out_contact():
     warnings = []
@@ -50,18 +53,21 @@ def go_out_contact():
     curs.execute("USE mealdecide;")
 
     contact = _go_out.contact_info(restaurant_id, curs)
+<<<<<<< HEAD
     print(str(contact))
+=======
+>>>>>>> 7dec23d1d15e83bab15d2696986ce3f04ba7c00b
 
     survey_core_questions['contact'] = contact
     survey_core_questions['name'] = name
 
     return render_template('go_out_contact.html',
-                           contact = contact,
-                           name = name)
+                           contact=contact,
+                           name=name)
+
 
 @app.route("/go_out_location", methods=["GET", "POST"])
 def go_out_location():
-
     # Initialize potential warnings to pass and set price range to none.
     warnings = []
     price_range = None
@@ -76,7 +82,9 @@ def go_out_location():
     restrict = request.form.getlist("restrictions")
 
     # Print to check output.
-    print(str(f"Meal: {meal}") + " " + str(f"|| Context: {context}") + " " + str(f"|| Speed {speed}") + " " + str(f"|| Cuisine {str(cuisine)}") + " " + str(f"|| Restrictions {str(restrict)}") + " " + str(f"Price max {price_max}") + " " + str(f"Price min {price_min}"))
+    print(str(f"Meal: {meal}") + " " + str(f"|| Context: {context}") + " " + str(f"|| Speed {speed}") + " " + str(
+        f"|| Cuisine {str(cuisine)}") + " " + str(f"|| Restrictions {str(restrict)}") + " " + str(
+        f"Price max {price_max}") + " " + str(f"Price min {price_min}"))
 
     # Check the price input and set the range, append a warning if the max and min price input are not valid.
     price_result = _go_out.check_price(price_max, price_min)
@@ -85,7 +93,7 @@ def go_out_location():
     else:
         warnings.append(price_result)
         return render_template('go_out_warning.html',
-                           warnings = warnings)
+                               warnings=warnings)
 
     # Set survey core questions for price-related info.
     survey_core_questions['price_max'] = (int(price_max) * "$")
@@ -129,8 +137,13 @@ def go_out_location():
         survey_core_questions['restriction_results'] = restriction_results
     
     survey_core_questions['cuisine_results'] = cuisine_results
+<<<<<<< HEAD
     survey_core_questions['top_results'] = top_results
     survey_core_questions['price_results'] = price_results    
+=======
+    survey_core_questions['subcategory_results'] = subcategory_results
+    survey_core_questions['price_results'] = price_results
+>>>>>>> 7dec23d1d15e83bab15d2696986ce3f04ba7c00b
     curs.close()
 
     # Generate name list for each output table to pass to random wheel.
@@ -141,6 +154,7 @@ def go_out_location():
 
 
     return render_template('go_out_results.html',
+<<<<<<< HEAD
                            cuisine_results = cuisine_results,
                            price_results = price_results,
                            top_results = top_results,
@@ -165,6 +179,12 @@ def go_out_random():
     print("HERE IS RANDSET:" + str(randset))
     choices = ",".join(randset)
     random_reference = url_base + choices
+=======
+                           cuisine_results=cuisine_results,
+                           price_results=price_results,
+                           subcategory_results=subcategory_results,
+                           restriction_results=restriction_results)
+>>>>>>> 7dec23d1d15e83bab15d2696986ce3f04ba7c00b
 
     survey_core_questions['random_reference'] = random_reference
     return render_template('go_out_random.html',
@@ -187,5 +207,5 @@ def server_app():
 
 
 if __name__ == '__main__':
-    webbrowser.open("http://127.0.0.1:5000")
-    app.run(host="127.0.0.1", port=5000)
+    webbrowser.open("http://127.0.0.1:5001")
+    app.run(host="127.0.0.1", port=5001)
