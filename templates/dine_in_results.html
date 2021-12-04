@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal Decide - Dine In</title>
+    <title>Meal Decide - Dine In Results</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
@@ -29,27 +29,158 @@
     <div class="landing-page">
 
         <br />
-        <h2>Dine In - Recipe Recommendation Finder</h2> <br>
+        <h2>Dine In - Recipe Recommendation Finder - Results</h2> <br>
         <br />
 
-        <form action="{{ url_for('dine_in') }}" id="entry-form" , method='POST'>
-            <p>Please enter your area code: </p> <input type='number' name="zipcode" value="{{zipcode}}" min="00501"
-            max="99950"><br></p>
-            <p>Please enter your maximum desired price range ($ - $$$$): </p>
-            <div class="slidecontainer">
-                <input type="range" name="maxprice" value="{{maxprice}}" min="1" max="4" value="2" class="slider">
-                <p>$&nbsp;&nbsp;$$&nbsp;&nbsp;$$$&nbsp;&nbsp;$$$$</p>
-            </div>
-            <p>Please enter your minimum desired price range ($ - $$$$): </p>
-            <div class="slidecontainer">
-                <input type="range" name="minprice" value="{{minprice}}" min="1" max="4" value="2" class="slider">
-                <p>$&nbsp;&nbsp;$$&nbsp;&nbsp;$$$&nbsp;&nbsp;$$$$</p>
-            </div>
-            <input type="submit" value="Submit">
-        </form>
+        <br />
+        <h3>Top Results
+            <form action="{{ url_for('go_out_random') }}" id="random-form" , method='POST'>
+                <input type="hidden" name="restaurants" id="restaurants" value={{top_names}}>
+                <input type="submit" value="Get Random Recommendation">
+            </form>
+        </h3> <br>
+        <p>Top results will only be shown if a recipe with the corresponding meal type, dish category, cuisine
+            selection, and
+            restriction specifications are found.</p>
+        <p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="med">Recipe</th>
+                    <th class="vlarge">URL</th>
+                    <th class="vsmall">Yield</th>
+                    <th class="med">Meal Type</th>
+                    <th class="small">Dish Type</th>
+                    <th class="med">Cuisine</th>
+                    <th class="med">Restrictions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in top_results %}
+                <tr>
+                    <td>{{p.label}}</td>
+                    <td><a href="{{p.url}}" target="_blank">{{p.url}}</a></td>
+                    <td>{{p.yield}}</td>
+                    <td>{{p.mealType}}</td>
+                    <td>{{p.dishType}}</td>
+                    <td>{{p.cuisineType}}</td>
+                    <td>{{p.dietLabels}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </p>
 
-    <script>
-    </script>
+        <br />
+
+        <br />
+        <h3>Restriction-Based Results&nbsp; &nbsp; &nbsp; &nbsp;
+            <form action="{{ url_for('go_out_random') }}" id="random-form" , method='POST'>
+                <input type="hidden" name="restaurants" id="restaurants" value={{restriction_names}}>
+                <input type="submit" value="Get Random Recommendation">
+            </form>
+        </h3> <br>
+        <p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="med">Recipe</th>
+                    <th class="vlarge">URL</th>
+                    <th class="vsmall">Yield</th>
+                    <th class="med">Meal Type</th>
+                    <th class="small">Dish Type</th>
+                    <th class="med">Cuisine</th>
+                    <th class="med">Restrictions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in top_results %}
+                <tr>
+                    <td>{{p.label}}</td>
+                    <td><a href="{{p.website}}" target="_blank">{{p.website}}</a></td>
+                    <td>{{p.yield}}</td>
+                    <td>{{p.mealType}}</td>
+                    <td>{{p.dishType}}</td>
+                    <td>{{p.cuisineType}}</td>
+                    <td>{{p.dietLabels}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </p>
+        <br />
+        <h3>Cuisine-Based Results
+            <form action="{{ url_for('go_out_random') }}" id="random-form" , method='POST'>
+                <input type="hidden" name="restaurants" id="restaurants" value={{cuisine_names}}>
+                <input type="submit" value="Get Random Recommendation">
+            </form>
+        </h3> <br>
+        <p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="med">Recipe</th>
+                    <th class="vlarge">URL</th>
+                    <th class="vsmall">Yield</th>
+                    <th class="med">Meal Type</th>
+                    <th class="small">Dish Type</th>
+                    <th class="med">Cuisine</th>
+                    <th class="med">Restrictions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in top_results %}
+                <tr>
+                    <td>{{p.label}}</td>
+                    <td><a href="{{p.website}}" target="_blank">{{p.website}}</a></td>
+                    <td>{{p.yield}}</td>
+                    <td>{{p.mealType}}</td>
+                    <td>{{p.dishType}}</td>
+                    <td>{{p.cuisineType}}</td>
+                    <td>{{p.dietLabels}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </p>
+
+        <h3>Dish-Based Results
+            <form action="{{ url_for('go_out_random') }}" id="random-form" , method='POST'>
+                <input type="hidden" name="restaurants" id="restaurants" value={{dish_names}}>
+                <input type="submit" value="Get Random Recommendation">
+            </form>
+        </h3> <br>
+        <p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="med">Recipe</th>
+                    <th class="vlarge">URL</th>
+                    <th class="vsmall">Yield</th>
+                    <th class="med">Meal Type</th>
+                    <th class="small">Dish Type</th>
+                    <th class="med">Cuisine</th>
+                    <th class="med">Restrictions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in dish_results %}
+                <tr>
+                    <td>{{p.label}}</td>
+                    <td><a href="{{p.website}}" target="_blank">{{p.website}}</a></td>
+                    <td>{{p.yield}}</td>
+                    <td>{{p.mealType}}</td>
+                    <td>{{p.dishType}}</td>
+                    <td>{{p.cuisineType}}</td>
+                    <td>{{p.dietLabels}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </p>
+
+        <script>
+        </script>
 
 </body>
 

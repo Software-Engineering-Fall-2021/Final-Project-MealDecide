@@ -1,8 +1,9 @@
 from re import search
 import webbrowser
+from math import ceil
+from random import sample
 import _go_out
-import random
-import math
+import _dine_in
 from flask import Flask, request, render_template
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
@@ -19,7 +20,6 @@ survey_core_questions = {
     'price_min': '',
     'zip_code': ''
 }
-
 
 @app.route("/")
 def index():
@@ -53,10 +53,6 @@ def go_out_contact():
     curs.execute("USE mealdecide;")
 
     contact = _go_out.contact_info(restaurant_id, curs)
-<<<<<<< HEAD
-    print(str(contact))
-=======
->>>>>>> 7dec23d1d15e83bab15d2696986ce3f04ba7c00b
 
     survey_core_questions['contact'] = contact
     survey_core_questions['name'] = name
@@ -137,13 +133,8 @@ def go_out_location():
         survey_core_questions['restriction_results'] = restriction_results
     
     survey_core_questions['cuisine_results'] = cuisine_results
-<<<<<<< HEAD
     survey_core_questions['top_results'] = top_results
     survey_core_questions['price_results'] = price_results    
-=======
-    survey_core_questions['subcategory_results'] = subcategory_results
-    survey_core_questions['price_results'] = price_results
->>>>>>> 7dec23d1d15e83bab15d2696986ce3f04ba7c00b
     curs.close()
 
     # Generate name list for each output table to pass to random wheel.
@@ -154,7 +145,6 @@ def go_out_location():
 
 
     return render_template('go_out_results.html',
-<<<<<<< HEAD
                            cuisine_results = cuisine_results,
                            price_results = price_results,
                            top_results = top_results,
@@ -171,28 +161,96 @@ def go_out_random():
     # Retrieve the request form information and load them into respective variables.
     restaurants = request.form.get("restaurants")
     print(restaurants)
+    for r in restaurants:
+        r.replace(",", "-")
+        r.replace("'", "-")
     choices = restaurants.split(",")
     print(str(choices))
     url_base = "https://pickerwheel.com/emb?choices="
 
-    randset = random.sample(choices, math.ceil(len(choices)/2))
+    randset = sample(choices, ceil(len(choices)/2))
     print("HERE IS RANDSET:" + str(randset))
     choices = ",".join(randset)
     random_reference = url_base + choices
-=======
-                           cuisine_results=cuisine_results,
-                           price_results=price_results,
-                           subcategory_results=subcategory_results,
-                           restriction_results=restriction_results)
->>>>>>> 7dec23d1d15e83bab15d2696986ce3f04ba7c00b
 
     survey_core_questions['random_reference'] = random_reference
     return render_template('go_out_random.html',
                            random_reference = random_reference)
 
-@app.route("/dine_in_location", methods=["GET", "POST"])
+@app.route("/dine_in", methods=["GET", "POST"])
 def dine_in():
     return render_template('dine_in.html')
+
+@app.route("/dine_in_recipe", methods=["GET", "POST"])
+def dine_in_recipe():
+    # Initialize potential warnings to pass and set price range to none.
+    warnings = []
+
+    # Retrieve the request form information and load them into respective variables.
+    meal = request.form.get("meal")
+    dish = request.form.getlist("dish")
+    cuisine = request.form.getlist("cuisine")
+    restrict = request.form.getlist("restrictions")
+
+    # Craft and return search fields to be passed in to queries.
+    search = _dine_in.craft_search(meal, dish, cuisine, restrict)
+    meal_search = search[0]
+    dish_search = search[1]
+    cuisine_search = search[2]
+    restriction_search = search[3]
+
+    # Open connection
+    curs = mysql.connect().cursor()
+    curs.execute("USE mealdecide;")
+
+    # Execute search queries based on user-given criteria.
+    results = _dine_in.execute_search(meal_search, dish_search, cuisine_search, restriction_search, curs)
+    top_results = results[0]
+    meal_results = results[1]
+    dish_results = results[2]
+    cuisine_results = results[3]
+    restriction_results = results[4]
+    top_names = ",".join(results[5])
+    top_names = top_names.replace(" ", "-")
+    meal_names = ",".join(results[6])
+    meal_names = meal_names.replace(" ", "-")
+    dish_names = ",".join(results[7])
+    dish_names = dish_names.replace(" ", "-")
+    cuisine_names = ",".join(results[8])
+    cuisine_names = cuisine_names.replace(" ", "-")
+    restriction_names = ",".join(results[9])
+    restriction_names = restriction_names.replace(" ", "-")
+    
+    survey_core_questions['top_results'] = top_results
+    survey_core_questions['dish_results'] = dish_results
+    survey_core_questions['cuisine_results'] = cuisine_results
+
+    # Check if restriction_results exists.
+    if not restriction_results:
+        restriction_results = []
+        survey_core_questions['restriction_results'] = restriction_results
+    else:
+        survey_core_questions['restriction_results'] = restriction_results
+    
+    curs.close()
+
+    # Generate name list for each output table to pass to random wheel.
+    survey_core_questions['dish_names'] = dish_names
+    survey_core_questions['restriction_names'] = restriction_names
+    survey_core_questions['cuisine_names'] = cuisine_names
+    survey_core_questions['top_names'] = top_names
+
+
+    return render_template('dine_in_results.html',
+                           cuisine_results = cuisine_results,
+                           dish_results = dish_results,
+                           top_results = top_results,
+                           restriction_results = restriction_results,
+                           restriction_names = restriction_names,
+                           cuisine_names = cuisine_names,
+                           dish_names = dish_names,
+                           top_names = top_names)
+
 
 
 @app.route("/return_home_btn", methods=["GET", "POST"])

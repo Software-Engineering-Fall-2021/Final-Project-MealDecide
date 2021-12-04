@@ -48,7 +48,7 @@
                     {% for p in contact[0] %}
                     <tr>
                         <td>{{p.phone}}</td>
-                        <td>{{p.website}}</td>
+                        <td><a href="{{p.website}}" target="_blank">{{p.website}}</a></td>
                         <td>{{p.email}}</td>
                         <td>{{p.address}}</td>
                     </tr>

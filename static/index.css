@@ -121,6 +121,10 @@ body {
     font-family: "Raleway", sans-serif;
   }
   
+  th.vsmall {
+    width: 4.5%;
+  }
+
   th.small {
     width: 8%;
   }
@@ -131,6 +135,10 @@ body {
 
   th.large {
     width: 25%;
+  }
+
+  th.vlarge {
+    width: 45%;
   }
 
   td {
