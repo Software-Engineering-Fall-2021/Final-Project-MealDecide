@@ -177,8 +177,14 @@ def find_top_recommendation(a, b, c, d):
 # ACCEPTS: LIST (category_tracked, list of restaurant names)
 # RETURNS: STR (CSV formatted list of restaurant names)
 def format_names(names):
-    csvformatted = ",".join(names)
-    apostrophe = csvformatted.replace("'", "")
-    ampersand = apostrophe.replace("&", "and")
-    spaced = ampersand.replace(" ", "-")
-    return spaced
+    final = []
+    for x in names:
+        a = x.replace(", ", "-")
+        b= a.replace(", ", "-")
+        c = b.replace("'", "-")
+        d = c.replace("&", "and")
+        e = d.replace(" ", "-")
+        final.append(e)
+    name = ",".join(final)
+
+    return name

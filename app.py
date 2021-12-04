@@ -159,6 +159,8 @@ def go_out_random():
     for r in restaurants:
         r.replace(",", "-")
         r.replace("'", "-")
+        r.replace("'", "-")
+        
     choices = restaurants.split(",")
     print(str(choices))
     url_base = "https://pickerwheel.com/emb?choices="
