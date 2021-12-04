@@ -97,7 +97,7 @@
                 {% for p in top_results %}
                 <tr>
                     <td>{{p.label}}</td>
-                    <td><a href="{{p.website}}" target="_blank">{{p.website}}</a></td>
+                    <td><a href="{{p.url}}" target="_blank">{{p.url}}</a></td>
                     <td>{{p.yield}}</td>
                     <td>{{p.mealType}}</td>
                     <td>{{p.dishType}}</td>
@@ -129,10 +129,10 @@
                 </tr>
             </thead>
             <tbody>
-                {% for p in top_results %}
+                {% for p in cuisine_results %}
                 <tr>
                     <td>{{p.label}}</td>
-                    <td><a href="{{p.website}}" target="_blank">{{p.website}}</a></td>
+                    <td><a href="{{p.url}}" target="_blank">{{p.url}}</a></td>
                     <td>{{p.yield}}</td>
                     <td>{{p.mealType}}</td>
                     <td>{{p.dishType}}</td>
@@ -167,7 +167,7 @@
                 {% for p in dish_results %}
                 <tr>
                     <td>{{p.label}}</td>
-                    <td><a href="{{p.website}}" target="_blank">{{p.website}}</a></td>
+                    <td><a href="{{p.url}}" target="_blank">{{p.url}}</a></td>
                     <td>{{p.yield}}</td>
                     <td>{{p.mealType}}</td>
                     <td>{{p.dishType}}</td>

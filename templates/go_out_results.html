@@ -79,7 +79,8 @@
         <br />
 
         <br />
-        <h3>Restriction-Based Results&nbsp; &nbsp; &nbsp; &nbsp;
+        {% if restriction_results %}
+        <h3>Restriction-Based Results
             <form action="{{ url_for('go_out_random') }}" id="random-form" , method='POST'>
                 <input type="hidden" name="restaurants" id="restaurants" value={{restriction_names}}>
                 <input type="submit" value="Get Random Recommendation">
@@ -119,6 +120,8 @@
             </tbody>
         </table>
         </p>
+        {% endif %}
+
         <br />
         <h3>Cuisine-Based Results
             <form action="{{ url_for('go_out_random') }}" id="random-form" , method='POST'>

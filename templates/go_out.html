@@ -31,6 +31,10 @@
         <br />
         <h2>Go Out - Restaurant Recommendation Finder</h2> <br>
         <br />
+        
+        {% for p in warnings %}
+                <p style="color:red">{{p}}</p>
+        {% endfor %}
 
         <form action="{{ url_for('go_out_location') }}" id="entry-form" , method='POST'>
 
@@ -70,7 +74,7 @@
             <br /><input type="checkbox" name="cuisine" value="ALLAN"> All
             <br /><input type="checkbox" name="cuisine" value="AMERI"> American
             <br /><input type="checkbox" name="cuisine" value="SEAFO"> Seafood
-            <br /><input type="checkbox" name="cuisine" value="MEDET"> Medeterranian
+            <br /><input type="checkbox" name="cuisine" value="MEDET"> Mediterranean
             <br /><input type="checkbox" name="cuisine" value="ITALI"> Italian
             <br /><input type="checkbox" name="cuisine" value="CHINA"> Chinese
             <br /><input type="checkbox" name="cuisine" value="JAPAN"> Japanese

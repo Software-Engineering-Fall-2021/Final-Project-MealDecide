@@ -9,6 +9,8 @@ from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
 
 app = Flask(__name__)
+
+# Create Connection to mealdecide MySQL Deployment.
 mysql = MySQL(cursorclass=DictCursor)
 app.config['MYSQL_DATABASE_USER'] = 'mealadmin@mealdecide'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'SoftwareEngineering2021!'
@@ -21,39 +23,43 @@ survey_core_questions = {
     'zip_code': ''
 }
 
+# Route for index page.
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
+# Route for proposal page.
 @app.route("/proposal_btn", methods=["GET", "POST"])
 def proposal_btn():
     return render_template('proposal.html')
 
-
+# Route for credit page.
 @app.route("/credit_btn", methods=["GET", "POST"])
 def credits_btn():
     return render_template('credits.html')
 
-
+# Route to handle user survey for "Go Out", providing location recommendations through executing a search.
 @app.route("/go_out", methods=["GET", "POST"])
 def go_out():
     return render_template('go_out.html')
 
-
+# Route to handle requests to obtain restaurant contact information in the "Go Out" results
 @app.route("/go_out_contact", methods=["GET", "POST"])
 def go_out_contact():
     warnings = []
 
-    # Retrieve the request form information and load them into respective variables.
+    # Retrieve the request form information and load the restaurant name and id.
     restaurant_id = request.form.get("rest_id")
     name = request.form.get("name")
 
+    # Connect to MySQL database.
     curs = mysql.connect().cursor()
     curs.execute("USE mealdecide;")
 
+    # Send request to obtain list containing restaurant contact info based on restaurant id. 
     contact = _go_out.contact_info(restaurant_id, curs)
 
+    # Load the answers into contact and name form references and return respective template
     survey_core_questions['contact'] = contact
     survey_core_questions['name'] = name
 
@@ -61,7 +67,7 @@ def go_out_contact():
                            contact=contact,
                            name=name)
 
-
+# Route to provide results from the search in "Go Out".
 @app.route("/go_out_location", methods=["GET", "POST"])
 def go_out_location():
     # Initialize potential warnings to pass and set price range to none.
@@ -77,18 +83,13 @@ def go_out_location():
     cuisine = request.form.getlist("cuisine")
     restrict = request.form.getlist("restrictions")
 
-    # Print to check output.
-    print(str(f"Meal: {meal}") + " " + str(f"|| Context: {context}") + " " + str(f"|| Speed {speed}") + " " + str(
-        f"|| Cuisine {str(cuisine)}") + " " + str(f"|| Restrictions {str(restrict)}") + " " + str(
-        f"Price max {price_max}") + " " + str(f"Price min {price_min}"))
-
     # Check the price input and set the range, append a warning if the max and min price input are not valid.
     price_result = _go_out.check_price(price_max, price_min)
     if price_result[0]:
         price_range = price_result[1]
     else:
-        warnings.append(price_result)
-        return render_template('go_out_warning.html',
+        warnings.append(price_result[1])
+        return render_template('go_out.html',
                                warnings=warnings)
 
     # Set survey core questions for price-related info.
@@ -112,18 +113,10 @@ def go_out_location():
     top_results = results[1]
     restriction_results = results[2]
     price_results = results[3]
-    cuisine_names = ",".join(results[4])
-    cuisine_names = cuisine_names.replace(" ", "-")
-    print(cuisine_names)
-    top_names = ",".join(results[5])
-    top_names = top_names.replace(" ", "-")
-    print(top_names)
-    restriction_names = ",".join(results[6])
-    restriction_names = restriction_names.replace(" ", "-")
-    print(restriction_names)
-    price_names = ",".join(results[7])
-    price_names = price_names.replace(" ", "-")
-    print(price_names)
+    cuisine_names = _go_out.format_names(results[4])
+    top_names = _go_out.format_names(results[5])
+    restriction_names = _go_out.format_names(results[6])
+    price_names = _go_out.format_names(results[7])
 
     # Check if restriction_results exists.
     if not restriction_results:
@@ -154,6 +147,8 @@ def go_out_location():
                            price_names = price_names,
                            top_names = top_names)
 
+# Route to provide random restaurant recommendations through a wheel decide feature based on results
+# found
 @app.route("/go_out_random", methods=["GET", "POST"])
 def go_out_random():
     warnings = []
@@ -168,7 +163,7 @@ def go_out_random():
     print(str(choices))
     url_base = "https://pickerwheel.com/emb?choices="
 
-    randset = sample(choices, ceil(len(choices)/2))
+    randset = sample(choices, len(choices))
     print("HERE IS RANDSET:" + str(randset))
     choices = ",".join(randset)
     random_reference = url_base + choices
@@ -177,10 +172,12 @@ def go_out_random():
     return render_template('go_out_random.html',
                            random_reference = random_reference)
 
+# Route to handle user survey for "Dine In", providing recipe recommendations through executing a search.
 @app.route("/dine_in", methods=["GET", "POST"])
 def dine_in():
     return render_template('dine_in.html')
 
+# Route to provide results from the search in "Dine In".
 @app.route("/dine_in_recipe", methods=["GET", "POST"])
 def dine_in_recipe():
     # Initialize potential warnings to pass and set price range to none.
@@ -210,16 +207,11 @@ def dine_in_recipe():
     dish_results = results[2]
     cuisine_results = results[3]
     restriction_results = results[4]
-    top_names = ",".join(results[5])
-    top_names = top_names.replace(" ", "-")
-    meal_names = ",".join(results[6])
-    meal_names = meal_names.replace(" ", "-")
-    dish_names = ",".join(results[7])
-    dish_names = dish_names.replace(" ", "-")
-    cuisine_names = ",".join(results[8])
-    cuisine_names = cuisine_names.replace(" ", "-")
-    restriction_names = ",".join(results[9])
-    restriction_names = restriction_names.replace(" ", "-")
+    top_names = _dine_in.format_names(results[5])
+    meal_names = _dine_in.format_names(results[6])
+    dish_names = _dine_in.format_names(results[7])
+    cuisine_names = _dine_in.format_names(results[8])
+    restriction_names = _dine_in.format_names(results[9])
     
     survey_core_questions['top_results'] = top_results
     survey_core_questions['dish_results'] = dish_results
@@ -251,13 +243,12 @@ def dine_in_recipe():
                            dish_names = dish_names,
                            top_names = top_names)
 
-
-
+# Button to reutrn home to index through / route.
 @app.route("/return_home_btn", methods=["GET", "POST"])
 def return_home_btn():
     return render_template("index.html")
 
-
+# Default server_app route to redirect to index /
 @app.route("/server_app", methods=["GET", "POST"])
 def server_app():
     # right now there aren't any back end functions so this will be empty
