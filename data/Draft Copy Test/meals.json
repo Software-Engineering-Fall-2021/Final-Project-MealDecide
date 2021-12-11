@@ -1,0 +1,871 @@
+{
+    "data": [
+{
+    "label": "African",
+    "value": "10632",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "INATL"
+  },
+  {
+    "label": "Alfredo",
+    "value": "20179",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ITALI"
+  },
+  {
+    "label": "American",
+    "value": "9908",
+    "selected": false,
+    "count": "79",
+    "default": false,
+    "single_select": false,
+    "category": "AMERI"
+  },
+  {
+    "label": "Arabic",
+    "value": "11744",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "INATL"
+  },
+  {
+    "label": "Asian",
+    "value": "10659",
+    "selected": false,
+    "count": "10",
+    "default": false,
+    "single_select": false,
+    "category": "ASIAN"
+  },
+  {
+    "label": "Bar",
+    "value": "10640",
+    "selected": false,
+    "count": "30",
+    "default": false,
+    "single_select": false,
+    "category": "ALCOH"
+  },
+  {
+    "label": "Barbecue",
+    "value": "10651",
+    "selected": false,
+    "count": "6",
+    "default": false,
+    "single_select": false,
+    "category": "AMERI"
+  },
+  {
+    "label": "Beef",
+    "value": "20752",
+    "selected": false,
+    "count": "13",
+    "default": false,
+    "single_select": false,
+    "category": "MEATS"
+  },
+  {
+    "label": "Beer restaurants",
+    "value": "21355",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ALCOH"
+  },
+  {
+    "label": "Brew Pub",
+    "value": "10621",
+    "selected": false,
+    "count": "3",
+    "default": false,
+    "single_select": false,
+    "category": "ALCOH"
+  },
+  {
+    "label": "Bruschette",
+    "value": "21215",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ITALI"
+  },
+  {
+    "label": "Burger",
+    "value": "10907",
+    "selected": false,
+    "count": "23",
+    "default": false,
+    "single_select": false,
+    "category": "AMERI"
+  },
+  {
+    "label": "Burrito",
+    "value": "10878",
+    "selected": false,
+    "count": "4",
+    "default": false,
+    "single_select": false,
+    "category": "LATIN"
+  },
+  {
+    "label": "Cafe",
+    "value": "10642",
+    "selected": false,
+    "count": "11",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Cakes",
+    "value": "21275",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "DESRT"
+  },
+  {
+    "label": "Calamari",
+    "value": "20027",
+    "selected": false,
+    "count": "3",
+    "default": false,
+    "single_select": false,
+    "category": "SEAFO"
+  },
+  {
+    "label": "Cantonese",
+    "value": "10692",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "parent_id": "5379",
+    "category": "CHINA"
+  },
+  {
+    "label": "Central European",
+    "value": "10746",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "INATL"
+  },
+  {
+    "label": "Cheeseburger",
+    "value": "10884",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "AMERI"
+  },
+  {
+    "label": "Chinese",
+    "value": "5379",
+    "selected": false,
+    "count": "11",
+    "default": false,
+    "single_select": false,
+    "category": "CHINA"
+  },
+  {
+    "label": "Chocolate mousse",
+    "value": "21038",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "DESRT"
+  },
+  {
+    "label": "Clams",
+    "value": "20556",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "SEAFO"
+  },
+  {
+    "label": "Contemporary",
+    "value": "10669",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "FORMA"
+  },
+  {
+    "label": "Crab",
+    "value": "10893",
+    "selected": false,
+    "count": "3",
+    "default": false,
+    "single_select": false,
+    "category": "SEAFO"
+  },
+  {
+    "label": "Crepes",
+    "value": "20317",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "FRANC"
+  },
+  {
+    "label": "Deli",
+    "value": "10666",
+    "selected": false,
+    "count": "3",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Diner",
+    "value": "10676",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Duck",
+    "value": "21022",
+    "selected": false,
+    "count": "3",
+    "default": false,
+    "single_select": false,
+    "category": "MEATS"
+  },
+  {
+    "label": "Dumplings",
+    "value": "10898",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "INATL"
+  },
+  {
+    "label": "Eastern European",
+    "value": "10742",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "INATL"
+  },
+  {
+    "label": "Eggplant",
+    "value": "20483",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "VEGET"
+  },
+  {
+    "label": "European",
+    "value": "10654",
+    "selected": false,
+    "count": "5",
+    "default": false,
+    "single_select": false,
+    "category": "INATL"
+  },
+  {
+    "label": "Fast Food",
+    "value": "10646",
+    "selected": false,
+    "count": "27",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Fish",
+    "value": "21324",
+    "selected": false,
+    "count": "11",
+    "default": false,
+    "single_select": false,
+    "category": "SEAFO"
+  },
+  {
+    "label": "Fish & Chips",
+    "value": "10901",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "SEAFO"
+  },
+  {
+    "label": "French",
+    "value": "5086",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "FRANC"
+  },
+  {
+    "label": "French Fries",
+    "value": "20703",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "AMERI"
+  },
+  {
+    "label": "French Toast",
+    "value": "10902",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "BREAK"
+  },
+  {
+    "label": "Fried rice",
+    "value": "21285",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ASIAN"
+  },
+  {
+    "label": "Gastropub",
+    "value": "10683",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ALCOH"
+  },
+  {
+    "label": "Gelato",
+    "value": "20533",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "DESRT"
+  },
+  {
+    "label": "Greek",
+    "value": "10664",
+    "selected": false,
+    "count": "3",
+    "default": false,
+    "single_select": false,
+    "category": "MEDET"
+  },
+  {
+    "label": "Grill",
+    "value": "10668",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Gyros",
+    "value": "10905",
+    "selected": false,
+    "count": "4",
+    "default": false,
+    "single_select": false,
+    "category": "MEDET"
+  },
+  {
+    "label": "Hamburgers",
+    "value": "20754",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "AMERI"
+  },
+  {
+    "label": "Ice Cream",
+    "value": "9899",
+    "selected": false,
+    "count": "13",
+    "default": false,
+    "single_select": false,
+    "category": "DESRT"
+  },
+  {
+    "label": "International",
+    "value": "10648",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "INATL"
+  },
+  {
+    "label": "Italian",
+    "value": "4617",
+    "selected": false,
+    "count": "28",
+    "default": false,
+    "single_select": false,
+    "category": "ITALI"
+  },
+  {
+    "label": "Italian Beef",
+    "value": "20151",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ITALI"
+  },
+  {
+    "label": "Japanese",
+    "value": "5473",
+    "selected": false,
+    "count": "4",
+    "default": false,
+    "single_select": false,
+    "category": "JAPAN"
+  },
+  {
+    "label": "Lamb",
+    "value": "21174",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "MEATS"
+  },
+  {
+    "label": "Lasagne",
+    "value": "10914",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ITALI"
+  },
+  {
+    "label": "Latin",
+    "value": "10639",
+    "selected": false,
+    "count": "4",
+    "default": false,
+    "single_select": false,
+    "category": "LATIN"
+  },
+  {
+    "label": "Mac and cheese",
+    "value": "20040",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Meatballs",
+    "value": "20318",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ITALI"
+  },
+  {
+    "label": "Meatloaf",
+    "value": "10918",
+    "selected": false,
+    "count": "3",
+    "default": false,
+    "single_select": false,
+    "category": "MEATS"
+  },
+  {
+    "label": "Mediterranean",
+    "value": "10649",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "MEDET"
+  },
+  {
+    "label": "Mexican",
+    "value": "5110",
+    "selected": false,
+    "count": "30",
+    "default": false,
+    "single_select": false,
+    "category": "LATIN"
+  },
+  {
+    "label": "Omelette",
+    "value": "10921",
+    "selected": false,
+    "count": "4",
+    "default": false,
+    "single_select": false,
+    "category": "BREAK"
+  },
+  {
+    "label": "Pancakes",
+    "value": "16555",
+    "selected": false,
+    "count": "7",
+    "default": false,
+    "single_select": false,
+    "category": "BREAK"
+  },
+  {
+    "label": "Paninis",
+    "value": "21209",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Pasta",
+    "value": "10678",
+    "selected": false,
+    "count": "9",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Perogies",
+    "value": "20139",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "POLIS"
+  },
+  {
+    "label": "Pesto",
+    "value": "21239",
+    "selected": false,
+    "count": "7",
+    "default": false,
+    "single_select": false,
+    "category": "ITALI"
+  },
+  {
+    "label": "Pizza",
+    "value": "10641",
+    "selected": false,
+    "count": "34",
+    "default": false,
+    "single_select": false,
+    "category": "ITALI"
+  },
+  {
+    "label": "Polish",
+    "value": "10637",
+    "selected": false,
+    "count": "3",
+    "default": false,
+    "single_select": false,
+    "category": "POLIS"
+  },
+  {
+    "label": "Pork",
+    "value": "21326",
+    "selected": false,
+    "count": "8",
+    "default": false,
+    "single_select": false,
+    "category": "MEATS"
+  },
+  {
+    "label": "Pork Tenderloin",
+    "value": "10928",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "MEATS"
+  },
+  {
+    "label": "Pretzel",
+    "value": "10931",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Pub",
+    "value": "10670",
+    "selected": false,
+    "count": "32",
+    "default": false,
+    "single_select": false,
+    "category": "ALCOH"
+  },
+  {
+    "label": "Ribs",
+    "value": "10932",
+    "selected": false,
+    "count": "5",
+    "default": false,
+    "single_select": false,
+    "category": "AMERI"
+  },
+  {
+    "label": "Salad",
+    "value": "16554",
+    "selected": false,
+    "count": "31",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Salmon",
+    "value": "20547",
+    "selected": false,
+    "count": "3",
+    "default": false,
+    "single_select": false,
+    "category": "SEAFO"
+  },
+  {
+    "label": "Sandwiches",
+    "value": "10647",
+    "selected": false,
+    "count": "8",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Scallops",
+    "value": "20542",
+    "selected": false,
+    "count": "3",
+    "default": false,
+    "single_select": false,
+    "category": "SEAFO"
+  },
+  {
+    "label": "Scottish",
+    "value": "10745",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "INATL"
+  },
+  {
+    "label": "Seafood",
+    "value": "10643",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "SEAFO"
+  },
+  {
+    "label": "Shrimp",
+    "value": "10937",
+    "selected": false,
+    "count": "10",
+    "default": false,
+    "single_select": false,
+    "category": "SEAFO"
+  },
+  {
+    "label": "Soups",
+    "value": "10700",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Southwestern",
+    "value": "10634",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "AMERI"
+  },
+  {
+    "label": "Spanish",
+    "value": "10655",
+    "selected": false,
+    "count": "4",
+    "default": false,
+    "single_select": false,
+    "category": "LATIN"
+  },
+  {
+    "label": "Steak Frites",
+    "value": "20336",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "MEATS"
+  },
+  {
+    "label": "Steakhouse",
+    "value": "10345",
+    "selected": false,
+    "count": "5",
+    "default": false,
+    "single_select": false,
+    "category": "FORMA"
+  },
+  {
+    "label": "Steak Sandwich",
+    "value": "20164",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "CASUA"
+  },
+  {
+    "label": "Sushi",
+    "value": "10653",
+    "selected": false,
+    "count": "6",
+    "default": false,
+    "single_select": false,
+    "category": "JAPAN"
+  },
+  {
+    "label": "Szechuan",
+    "value": "10695",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "parent_id": "5379",
+    "category": "CHINA"
+  },
+  {
+    "label": "Tacos",
+    "value": "19954",
+    "selected": false,
+    "count": "8",
+    "default": false,
+    "single_select": false,
+    "category": "LATIN"
+  },
+  {
+    "label": "Tapas",
+    "value": "10942",
+    "selected": false,
+    "count": "8",
+    "default": false,
+    "single_select": false,
+    "category": "LATIN"
+  },
+  {
+    "label": "Thai",
+    "value": "10660",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "ASIAN"
+  },
+  {
+    "label": "Toasts",
+    "value": "20730",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "BREAK"
+  },
+  {
+    "label": "Tortellini",
+    "value": "20331",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ITALI"
+  },
+  {
+    "label": "Tortelloni",
+    "value": "20344",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ITALI"
+  },
+  {
+    "label": "Waffles",
+    "value": "20045",
+    "selected": false,
+    "count": "2",
+    "default": false,
+    "single_select": false,
+    "category": "BREAK"
+  },
+  {
+    "label": "Waffles & Crepes",
+    "value": "9910",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "BREAK"
+  },
+  {
+    "label": "Wine Bar",
+    "value": "10682",
+    "selected": false,
+    "count": "1",
+    "default": false,
+    "single_select": false,
+    "category": "ALCOH"
+  },
+  {
+    "label": "Wings",
+    "value": "19955",
+    "selected": false,
+    "count": "9",
+    "default": false,
+    "single_select": false,
+    "category": "FRIED",
+    "casual": true
+  }
+]
+}

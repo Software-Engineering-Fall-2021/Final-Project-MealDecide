@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Decide - Go Out Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/index.css') }}">
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="{{ url_for('proposal_btn') }}">About Us</a>
+        <a href="{{ url_for('credits_btn') }}">Credits</a>
+
+
+    </div>
+    <div class="title-container">
+        <div class="title-header">
+            <h1><br>Meal Decide</h1>
+        </div>
+    </div>
+
+    <div class="landing-page">
+
+        <br />
+        <h2>Go Out - Restaurant Recommendation Finder - Results</h2> <br>
+        <br />
+
+        <p>Top results will only be shown if a restaurant with the corresponding price range, cuisine selection, and
+            restriction specifications are found. If none are found with your criteria, the default results focus on cuisine.</p>
+
+        <br />
+
+        {%if top_results%}
+        <h3>Top Results
+            <form action="{{ url_for('go_out_random') }}" id="random-form" , method='POST'>
+                <input type="hidden" name="restaurants" id="restaurants" value={{top_names}}>
+                <input type="submit" value="Get Random Recommendation">
+            </form>
+        </h3> <br>
+        <p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="med">Restaurant</th>
+                    <th class="small">Rating</th>
+                    <th class="small">Price Level</th>
+                    <th class="large">Description</th>
+                    <th class="small">Cuisine</th>
+                    <th class="small">Restrictions</th>
+                    <th class="small">Score</th>
+                    <th class="med">Contact</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in top_results %}
+                <tr>
+                    <td>{{p.name}}</td>
+                    <td>{{p.rating}}</td>
+                    <td>{{p.price_level}}</td>
+                    <td>{{p.description}}</td>
+                    <td>{{p.cuisine_description}}</td>
+                    <td>{{p.restriction_description}}</td>
+                    <td>{{p.score}}</td>
+                    <td>
+                        <form action="{{ url_for('go_out_contact') }}" id="contact-form" , method='POST'>
+                            <input type="hidden" name="name" id="name" value={{p.name}}>
+                            <input type="hidden" name="rest_id" id="rest_id" value={{p.restaurant_id}}>
+                            <input type="submit" value="Contact">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </p>
+
+
+        <br />
+
+        <br />
+        {% else %}
+        <h3>Cuisine-Based Results
+            <form action="{{ url_for('go_out_random') }}" id="random-form" , method='POST'>
+                <input type="hidden" name="restaurants" id="restaurants" value={{cuisine_names}}>
+                <input type="submit" value="Get Random Recommendation">
+            </form>
+        </h3> <br>
+        <p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="med">Restaurant</th>
+                    <th class="small">Rating</th>
+                    <th class="small">Price Level</th>
+                    <th class="large">Description</th>
+                    <th class="small">Cuisine</th>
+                    <th class="small">Restrictions</th>
+                    <th class="med">Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in cuisine_results %}
+                <tr>
+                    <td>{{p.name}}</td>
+                    <td>{{p.rating}}</td>
+                    <td>{{p.price_level}}</td>
+                    <td>{{p.description}}</td>
+                    <td>{{p.cuisine_description}}</td>
+                    <td>{{p.restriction_description}}</td>
+                    <td>
+                        <form action="{{ url_for('go_out_contact') }}" id="contact-form" , method='POST'>
+                            <input type="hidden" name="name" id="name" value={{p.name}}>
+                            <input type="hidden" name="rest_id" id="rest_id" value={{p.restaurant_id}}>
+                            <input type="submit" value="Contact">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </p>
+
+        {%endif%}
+
+        <!-- {% elif restriction_results %}
+        <h3>Restriction-Based Results
+            <form action="{{ url_for('go_out_random') }}" id="random-form" , method='POST'>
+                <input type="hidden" name="restaurants" id="restaurants" value={{restriction_names}}>
+                <input type="submit" value="Get Random Recommendation">
+            </form>
+        </h3> <br>
+        <p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="med">Restaurant</th>
+                    <th class="small">Rating</th>
+                    <th class="small">Price Level</th>
+                    <th class="large">Description</th>
+                    <th class="small">Cuisine</th>
+                    <th class="small">Restrictions</th>
+                    <th class="med">Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in restriction_results %}
+                <tr>
+                    <td>{{p.name}}</td>
+                    <td>{{p.rating}}</td>
+                    <td>{{p.price_level}}</td>
+                    <td>{{p.description}}</td>
+                    <td>{{p.cuisine_description}}</td>
+                    <td>{{p.restriction_description}}</td>
+                    <td>
+                        <form action="{{ url_for('go_out_contact') }}" id="contact-form" , method='POST'>
+                            <input type="hidden" name="name" id="name" value={{p.name}}>
+                            <input type="hidden" name="rest_id" id="rest_id" value={{p.restaurant_id}}>
+                            <input type="submit" value="Contact">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </p>
+        {% endif %}
+
+        {% elif price_results %}
+        <h3>Price-Based Results
+            <form action="{{ url_for('go_out_random') }}" id="random-form" , method='POST'>
+                <input type="hidden" name="restaurants" id="restaurants" value={{price_names}}>
+                <input type="submit" value="Get Random Recommendation">
+            </form>
+        </h3> <br>
+        <p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="med">Restaurant</th>
+                    <th class="small">Rating</th>
+                    <th class="small">Price Level</th>
+                    <th class="large">Description</th>
+                    <th class="small">Cuisine</th>
+                    <th class="small">Restrictions</th>
+                    <th class="med">Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in price_results %}
+                <tr>
+                    <td>{{p.name}}</td>
+                    <td>{{p.rating}}</td>
+                    <td>{{p.price_level}}</td>
+                    <td>{{p.description}}</td>
+                    <td>{{p.cuisine_description}}</td>
+                    <td>{{p.restriction_description}}</td>
+                    <td>
+                        <form action="{{ url_for('go_out_contact') }}" id="contact-form" , method='POST'>
+                            <input type="hidden" name="name" id="name" value={{p.name}}>
+                            <input type="hidden" name="rest_id" id="rest_id" value={{p.restaurant_id}}>
+                            <input type="submit" value="Contact">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </p>
+
+        {%endif%}-->
+
+
+        <script>
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,244 @@
+{
+  "data": [
+    {
+      "restriction_id": 1,
+      "label": "Alcohol-Cocktail",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 2,
+      "label": "Alcohol-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 3,
+      "label": "Celery-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 4,
+      "label": "Crustcean-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 5,
+      "label": "Dairy-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 6,
+      "label": "DASH",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 7,
+      "label": "Egg-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 8,
+      "label": "Fish-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 9,
+      "label": "FODMAP-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 10,
+      "label": "Gluten-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 11,
+      "label": "Immuno-Supportive",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 12,
+      "label": "Keto-Friendly",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 13,
+      "label": "Kidney-Friendly",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 14,
+      "label": "Kosher",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 15,
+      "label": "Low Potassium",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 16,
+      "label": "Low Sugar",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 17,
+      "label": "Lupine-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 18,
+      "label": "Mediterranean",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 19,
+      "label": "Mollusk-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 20,
+      "label": "Mustard-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 21,
+      "label": "No oil added",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 22,
+      "label": "Paleo",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 23,
+      "label": "Peanut-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 24,
+      "label": "Pescatarian",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 25,
+      "label": "Pork-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 26,
+      "label": "Red-Meat-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 27,
+      "label": "Sesame-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 28,
+      "label": "Shellfish-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 29,
+      "label": "Soy-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 30,
+      "label": "Sugar-Conscious",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 31,
+      "label": "Sulfite-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 32,
+      "label": "Tree-Nut-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 33,
+      "label": "Vegan",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 34,
+      "label": "Vegetarian",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 35,
+      "label": "Wheat-Free",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 36,
+      "label": "Low-Carb",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 37,
+      "label": "Low-Fat",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 38,
+      "label": "Low-Sodium",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 39,
+      "label": "High-Fiber",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    },
+    {
+      "restriction_id": 40,
+      "label": "Balanced",
+      "restaurant_count": 0,
+      "recipe_count": 0
+    }
+  ]
+}

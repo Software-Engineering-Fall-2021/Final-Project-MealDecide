@@ -1,0 +1,674 @@
+{"data": [
+    {
+      "restaurant_id": 1,
+      "label": "African",
+      "category": "INATL",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 2,
+      "label": "Alfredo",
+      "category": "ITALI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 3,
+      "label": "American",
+      "category": "AMERI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 4,
+      "label": "Arabic",
+      "category": "INATL",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 5,
+      "label": "Asian",
+      "category": "ASIAN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 6,
+      "label": "Bar",
+      "category": "ALCOH",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 7,
+      "label": "Barbecue",
+      "category": "AMERI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 8,
+      "label": "Beef",
+      "category": "MEATS",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 9,
+      "label": "Beer restaurants",
+      "category": "ALCOH",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 10,
+      "label": "Brew Pub",
+      "category": "ALCOH",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 11,
+      "label": "Bruschette",
+      "category": "ITALI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 12,
+      "label": "Burger",
+      "category": "AMERI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 13,
+      "label": "Burrito",
+      "category": "LATIN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 14,
+      "label": "Cafe",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 15,
+      "label": "Cakes",
+      "category": "DESRT",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 16,
+      "label": "Calamari",
+      "category": "SEAFO",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 17,
+      "label": "Cantonese",
+      "category": "CHINA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 18,
+      "label": "Central European",
+      "category": "INATL",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 19,
+      "label": "Cheeseburger",
+      "category": "AMERI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 20,
+      "label": "Chinese",
+      "category": "CHINA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 21,
+      "label": "Chocolate mousse",
+      "category": "DESRT",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 22,
+      "label": "Clams",
+      "category": "SEAFO",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 23,
+      "label": "Contemporary",
+      "category": "FORMA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 24,
+      "label": "Crab",
+      "category": "SEAFO",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 25,
+      "label": "Crepes",
+      "category": "FRANC",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 26,
+      "label": "Deli",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 27,
+      "label": "Diner",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 28,
+      "label": "Duck",
+      "category": "MEATS",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 29,
+      "label": "Dumplings",
+      "category": "INATL",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 30,
+      "label": "Eastern European",
+      "category": "INATL",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 31,
+      "label": "Eggplant",
+      "category": "VEGET",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 32,
+      "label": "European",
+      "category": "INATL",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 33,
+      "label": "Fast Food",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 34,
+      "label": "Fish",
+      "category": "SEAFO",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 35,
+      "label": "Fish & Chips",
+      "category": "SEAFO",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 36,
+      "label": "French",
+      "category": "FRANC",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 37,
+      "label": "French Fries",
+      "category": "AMERI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 38,
+      "label": "French Toast",
+      "category": "BREAK",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 39,
+      "label": "Fried rice",
+      "category": "ASIAN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 40,
+      "label": "Gastropub",
+      "category": "ALCOH",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 41,
+      "label": "Gelato",
+      "category": "DESRT",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 42,
+      "label": "Greek",
+      "category": "MEDET",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 43,
+      "label": "Grill",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 44,
+      "label": "Gyros",
+      "category": "MEDET",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 45,
+      "label": "Hamburgers",
+      "category": "AMERI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 46,
+      "label": "Ice Cream",
+      "category": "DESRT",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 47,
+      "label": "International",
+      "category": "INATL",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 48,
+      "label": "Italian",
+      "category": "ITALI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 49,
+      "label": "Italian Beef",
+      "category": "ITALI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 50,
+      "label": "Japanese",
+      "category": "JAPAN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 51,
+      "label": "Lamb",
+      "category": "MEATS",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 52,
+      "label": "Lasagne",
+      "category": "ITALI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 53,
+      "label": "Latin",
+      "category": "LATIN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 54,
+      "label": "Mac and cheese",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 55,
+      "label": "Meatballs",
+      "category": "ITALI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 56,
+      "label": "Meatloaf",
+      "category": "MEATS",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 57,
+      "label": "Mediterranean",
+      "category": "MEDET",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 58,
+      "label": "Mexican",
+      "category": "LATIN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 59,
+      "label": "Omelette",
+      "category": "BREAK",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 60,
+      "label": "Pancakes",
+      "category": "BREAK",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 61,
+      "label": "Paninis",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 62,
+      "label": "Pasta",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 63,
+      "label": "Perogies",
+      "category": "POLIS",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 64,
+      "label": "Pesto",
+      "category": "ITALI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 65,
+      "label": "Pizza",
+      "category": "ITALI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 66,
+      "label": "Polish",
+      "category": "POLIS",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 67,
+      "label": "Pork",
+      "category": "MEATS",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 68,
+      "label": "Pork Tenderloin",
+      "category": "MEATS",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 69,
+      "label": "Pretzel",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 70,
+      "label": "Pub",
+      "category": "ALCOH",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 71,
+      "label": "Ribs",
+      "category": "AMERI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 72,
+      "label": "Salad",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 73,
+      "label": "Salmon",
+      "category": "SEAFO",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 74,
+      "label": "Sandwiches",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 75,
+      "label": "Scallops",
+      "category": "SEAFO",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 76,
+      "label": "Scottish",
+      "category": "INATL",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 77,
+      "label": "Seafood",
+      "category": "SEAFO",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 78,
+      "label": "Shrimp",
+      "category": "SEAFO",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 79,
+      "label": "Soups",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 80,
+      "label": "Southwestern",
+      "category": "AMERI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 81,
+      "label": "Spanish",
+      "category": "LATIN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 82,
+      "label": "Steak Frites",
+      "category": "MEATS",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 83,
+      "label": "Steakhouse",
+      "category": "FORMA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 84,
+      "label": "Steak Sandwich",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 85,
+      "label": "Sushi",
+      "category": "JAPAN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 86,
+      "label": "Szechuan",
+      "category": "CHINA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 87,
+      "label": "Tacos",
+      "category": "LATIN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 88,
+      "label": "Tapas",
+      "category": "LATIN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 89,
+      "label": "Thai",
+      "category": "ASIAN",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 90,
+      "label": "Toasts",
+      "category": "BREAK",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 91,
+      "label": "Tortellini",
+      "category": "ITALI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 92,
+      "label": "Tortelloni",
+      "category": "ITALI",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 93,
+      "label": "Waffles",
+      "category": "BREAK",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 94,
+      "label": "Waffles & Crepes",
+      "category": "BREAK",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 95,
+      "label": "Wine Bar",
+      "category": "ALCOH",
+      "restaurant_count": 0,
+      "recipe_count":0
+    },
+    {
+      "restaurant_id": 96,
+      "label": "Wings",
+      "category": "CASUA",
+      "restaurant_count": 0,
+      "recipe_count":0
+    }
+  ] }

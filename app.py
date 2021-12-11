@@ -1,9 +1,17 @@
+# Non-Project function based imports.
+from os import dup2
 from re import search
 import webbrowser
 from math import ceil
 from random import sample
+from operator import itemgetter
+
+# Project function based imports.
 import _go_out
 import _dine_in
+import _field_parsing
+
+# Web Application Framework imports
 from flask import Flask, request, render_template
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
@@ -54,7 +62,7 @@ def go_out_contact():
 
     # Connect to MySQL database.
     curs = mysql.connect().cursor()
-    curs.execute("USE mealdecide;")
+    curs.execute("USE mealdecideplus;")
 
     # Send request to obtain list containing restaurant contact info based on restaurant id. 
     contact = _go_out.contact_info(restaurant_id, curs)
@@ -84,7 +92,7 @@ def go_out_location():
     restrict = request.form.getlist("restrictions")
 
     # Check the price input and set the range, append a warning if the max and min price input are not valid.
-    price_result = _go_out.check_price(price_max, price_min)
+    price_result = _field_parsing.check_price(price_max, price_min)
     if price_result[0]:
         price_range = price_result[1]
     else:
@@ -105,46 +113,86 @@ def go_out_location():
 
     # Open connection
     curs = mysql.connect().cursor()
-    curs.execute("USE mealdecide;")
+    curs.execute("USE mealdecideplus;")
 
     # Execute search queries based on user-given criteria.
-    results = _go_out.execute_search(cuisine_search, subcategory_search, restriction_search, price_min, price_max, curs)
-    cuisine_results = results[0]
-    top_results = results[1]
-    restriction_results = results[2]
-    price_results = results[3]
-    cuisine_names = _go_out.format_names(results[4])
-    top_names = _go_out.format_names(results[5])
-    restriction_names = _go_out.format_names(results[6])
-    price_names = _go_out.format_names(results[7])
-
-    # Check if restriction_results exists.
-    if not restriction_results:
-        restriction_results = []
-        survey_core_questions['restriction_results'] = restriction_results
-    else:
-        survey_core_questions['restriction_results'] = restriction_results
+    unsortedfinal = _go_out.execute_search(cuisine_search, subcategory_search, restriction_search, price_min, price_max, curs)
     
+    # Sort final resulting restaurant information.
+    cuisine_results = unsortedfinal[0]
+    top_results = unsortedfinal[1]
+
+    # Sort final restaurant name lists to pass to the wheel.
+    if len(unsortedfinal[2]) > 20:
+        fcnames = unsortedfinal[2][:19]
+    else:
+        fcnames = unsortedfinal[2]
+    cuisine_names = _field_parsing.convert_wheel_names(fcnames)
+    top_names = _field_parsing.convert_wheel_names(unsortedfinal[3])
+
+    # Sort through top results to find duplicates, filter out duplicates, and sort results by score.
+    duplicates = {}
+    final = []
+    for res in top_results:
+        resid = res["restaurant_id"]
+        resname = res["name"]
+        resrating = res["rating"]
+        resscore = res["score"]
+        info = {"id": resid, "rating": resrating, "score": resscore, "result": res}
+    
+        if resname in duplicates.keys(): # If duplicate is encountered, challenger enters to defend current position.
+            challenger = duplicates[resname]
+            if int(challenger["score"])<int(info["score"]):
+                final.remove(challenger["result"])
+                final.append(res)
+                duplicates[resname] = info
+            else:
+                continue
+        elif int(resscore) > 0: # If the score is greater than 0, enter it into the results.
+            final.append(res)
+            duplicates[resname] = info
+
+    resultsorted = sorted(final, key=itemgetter('score'), reverse=True) # Sort the results.
+
+    # If the final result set is greater than 20, cut it down to 20.
+    if len(resultsorted) > 20:
+        top_results = resultsorted[:19]
+        finalnames = []
+        for k in duplicates.keys():
+            finalnames.append(k)
+            if len(finalnames) == 20:
+                break
+        top_names = _field_parsing.convert_wheel_names(finalnames)
+    else:
+        top_results = resultsorted
+        finalnames = []
+        for k in duplicates.keys():
+            finalnames.append(k)
+        top_names = _field_parsing.convert_wheel_names(finalnames)
+
+
+    if len(cuisine_results) > 20: # Same for cuisine results.
+        cuisine_results = cuisine_results[:19]
+    else:
+        cuisine_results = cuisine_results
+
+    # Return outputs to be displayed in the table
     survey_core_questions['cuisine_results'] = cuisine_results
     survey_core_questions['top_results'] = top_results
-    survey_core_questions['price_results'] = price_results    
     curs.close()
 
     # Generate name list for each output table to pass to random wheel.
-    survey_core_questions['price_names'] = price_names
-    survey_core_questions['restriction_names'] = restriction_names
     survey_core_questions['cuisine_names'] = cuisine_names
     survey_core_questions['top_names'] = top_names
 
+    # If there are no top results, default to cuisine names for the wheel-decide output.
+    if not top_results:
+        top_names = cuisine_names
 
     return render_template('go_out_results.html',
                            cuisine_results = cuisine_results,
-                           price_results = price_results,
                            top_results = top_results,
-                           restriction_results = restriction_results,
-                           restriction_names = restriction_names,
                            cuisine_names = cuisine_names,
-                           price_names = price_names,
                            top_names = top_names)
 
 # Route to provide random restaurant recommendations through a wheel decide feature based on results
@@ -155,8 +203,8 @@ def go_out_random():
 
     # Retrieve the request form information and load them into respective variables.
     restaurants = request.form.get("restaurants")
-    print(restaurants)
-    for r in restaurants:
+
+    for r in restaurants:     # Parse the restaurant string to remove unexpected characters
         r.replace(",", "-")
         r.replace("'", "-")
         r.replace("'", "-")
@@ -165,8 +213,8 @@ def go_out_random():
     print(str(choices))
     url_base = "https://pickerwheel.com/emb?choices="
 
+    # Pick a random set of options from the set to throw into the wheel and parse it.
     randset = sample(choices, len(choices))
-    print("HERE IS RANDSET:" + str(randset))
     choices = ",".join(randset)
     random_reference = url_base + choices
 

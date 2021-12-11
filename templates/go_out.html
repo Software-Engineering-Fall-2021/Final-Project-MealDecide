@@ -38,20 +38,24 @@
 
         <form action="{{ url_for('go_out_location') }}" id="entry-form" , method='POST'>
 
+
+            <!-- Used for price-based search -->
             <p>Please enter your minimum desired price range ($ - $$$$): </p>
             <div class="slidecontainer">
-                <input type="range" name="minprice" value="{{minprice}}" min="1" max="4" value="2" class="slider">
+                <input type="range" name="minprice" value="{{minprice}}" min="1" max="4"class="slider">
                 <p>$&nbsp;&nbsp;$$&nbsp;&nbsp;$$$&nbsp;&nbsp;$$$$</p>
             </div>
             <br />
 
+            <!-- Used for price-based search -->
             <p>Please enter your maximum desired price range ($ - $$$$): </p>
             <div class="slidecontainer">
-                <input type="range" name="maxprice" value="{{maxprice}}" min="1" max="4" value="2" class="slider">
+                <input type="range" name="maxprice" value="{{maxprice}}" min="1" max="4" class="slider">
                 <p>$&nbsp;&nbsp;$$&nbsp;&nbsp;$$$&nbsp;&nbsp;$$$$</p>
             </div>
             <br />
 
+            <!-- Used for cuisine-based search -->
             <p>What kind of meal are you looking for?
             <br /><input type="radio" name="meal" value="BREAK">Breakfast
             <br /><input type="radio" name="meal" value="LUNCH" checked>Lunch
@@ -60,16 +64,20 @@
             <br /><input type="radio" name="meal" value="ALCOH" >Drinks</p>
             <br />
 
+            <!-- Used for cuisine-based search -->
             <p>Are you looking for some place formal or casual?
             <br /><input type="radio" name="context" value="FORMA">Formal
             <br /><input type="radio" name="context" value="CASUA" checked>Casual</p>
             <br />
 
-            <p>Are you looking for a fast-bite or a sit-down meal?
-            <br /><input type="radio" name="speed" value="FSTFD">Fast Food
-            <br /><input type="radio" name="speed" value="SITDW" checked>Sit Down</p>
+            <!-- Used for subcategory-based search -->
+            <p>Are you looking for fast-food/chain-restaurant or non fast-food/chain-restaurant meal?
+            <br /><input type="radio" name="speed" value="fast_foo"> Fast Food / Chain Restaurant
+            <br /><input type="radio" name="speed" value="sit_down" checked> Non Fast Food / Chain Restaurant
+            <br /><input type="radio" name="speed" value="either">Either</p>
             <br />
 
+            <!-- Used for cuisine-based search -->
             <p>Do you have any specific cuisine types in mind?
             <br /><input type="checkbox" name="cuisine" value="ALLAN"> All
             <br /><input type="checkbox" name="cuisine" value="AMERI"> American
@@ -83,7 +91,7 @@
             <br /><input type="checkbox" name="cuisine" value="INATL"> Any International Food</p>
             <br />
 
-            
+            <!-- Used for restriction-based search -->
             <p>Do you have any dietary restrictions or preferences?
                 <br /><input type="checkbox" name="restrictions" value="Vegetarian"> Vegetarian Friendly
                 <br /><input type="checkbox" name="restrictions" value="Vegan"> Vegan Options
