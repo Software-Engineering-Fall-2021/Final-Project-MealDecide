@@ -96,7 +96,7 @@ def queryRestaurant(offset):
 
     headers = {
         'x-rapidapi-host': "travel-advisor.p.rapidapi.com",
-        'x-rapidapi-key': "97bdd0b262msh871fd82e2b688c9p1d9f78jsnfdcf37588290"
+        'x-rapidapi-key': "LMAO_OOPS_EXPOSED_KEY_WE_DON'T_WANT_THAT_ON_GITHUB"
         }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
