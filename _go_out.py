@@ -26,6 +26,7 @@ def craft_search(cuisine, meal, context, speed, restrict):
     # Configure cuisine based on meal selection.
     if meal == "BREAK":
         cuisine_search.append(meal)
+        subcategory_search.append("breakfast")
     if meal == "DESRT":
         cuisine_search.append(meal)
     if meal == "ALCOH":

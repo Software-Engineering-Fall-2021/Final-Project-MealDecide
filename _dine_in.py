@@ -1,4 +1,5 @@
 import json
+import _scoring
 
 # Function to craft searches based on user input from survey which will be passed to search function.
 # ACCEPTS: STR (meal), LIST (dish), LIST (cuisine), LIST (restrict)
@@ -121,24 +122,24 @@ def search(s, stype, cur, sparams=None):
 # RETURNS: LIST ==> [ LIST (category_result for each search given in parameters), LIST (category_tracked for each search given in parameters)]
 def execute_search(meal_search, dish_search, cuisine_search, restriction_search, cur):
     meal = search(meal_search, "meal", cur)
-    meal_results = meal[0]
+    meal_results = _scoring.recipe_scorekeep(meal[0], dish_search, meal_search, restriction_search)
     meals_tracked = meal[1]
 
     dish = search(dish_search, "dish", cur)
-    dish_results = dish[0]
+    dish_results = _scoring.recipe_scorekeep(dish[0], dish_search, meal_search, restriction_search)
     dishes_tracked = dish[1]
 
     cuisine = search(cuisine_search, "cuisine", cur)
-    cuisine_results = cuisine[0]
+    cuisine_results = _scoring.recipe_scorekeep(cuisine[0], dish_search, meal_search, restriction_search)
     cuisines_tracked = cuisine[1]
     
     restriction = search(restriction_search, "restriction", cur)
-    restriction_results = restriction[0]
+    restriction_results = _scoring.recipe_scorekeep(restriction[0], dish_search, meal_search, restriction_search)
     restrictions_tracked = restriction[1]
     
     top_tracked = find_top_recommendation(meals_tracked, dishes_tracked, cuisines_tracked, restrictions_tracked)
     top = search(top_tracked, "top", cur)
-    top_results = top[0]
+    top_results = _scoring.recipe_scorekeep(top[0], dish_search, meal_search, restriction_search)
 
     results = [top_results, meal_results, dish_results, cuisine_results, restriction_results, top_tracked, meals_tracked, dishes_tracked, cuisines_tracked, restrictions_tracked]
     return results

@@ -181,6 +181,99 @@ def score_cuisine(cr, criteria):
 
     return cr_updated
 
+def score_meal(cr, criteria):
+    cr_updated = []
+
+    for result in cr:
+        m_score = 0
+
+        
+        meal = result["mealType"]
+
+        split = meal.split(" ")
+
+        for crit in criteria:
+            if crit in meal:
+                m_score = + 1
+        
+        try:
+            current = result["score"]
+            updated = current + m_score
+            result["score"] = updated
+            cr_updated.append(result)
+        except KeyError:
+            result["score"] = m_score
+            cr_updated.append(result)
+
+    return cr_updated
+
+def score_dish(cr, criteria):
+    cr_updated = []
+
+    if criteria:
+        for result in cr:
+            d_score = 0
+
+            
+            meal = result["dishType"]
+            split = meal.split(" ")
+            tempsp = " ".join(criteria)
+            splitcr = tempsp.split(" ")
+
+            for crit in splitcr:
+                if crit in split:
+                    d_score = + 1
+            
+            try:
+                current = result["score"]
+                updated = current + d_score
+                result["score"] = updated
+                cr_updated.append(result)
+            except KeyError:
+                result["score"] = d_score
+                cr_updated.append(result)
+
+        return cr_updated
+    else:
+        return cr
+
+def score_restriction_recipe(cr, criteria):
+    cr_updated = []
+
+    if criteria:
+        for result in cr:
+            r_score = 0
+
+            
+            restrict = result["dietLabels"]
+            if restrict:
+                split = restrict.split(" ")
+            else:
+                restrict = ""
+                
+            for crit in criteria:
+                if crit in split:
+                    r_score = + 1
+            
+            try:
+                current = result["score"]
+                updated = current + r_score
+                result["score"] = updated
+                cr_updated.append(result)
+            except KeyError:
+                result["score"] = r_score
+                cr_updated.append(result)
+
+        return cr_updated
+    else:
+        return cr
+
+def recipe_scorekeep(result, dish_criteria, meal_criteria, restriction_criteria):
+    dish_scored = score_dish(result, dish_criteria)
+    meal_scored = score_meal(dish_scored, meal_criteria)
+    restriction_scored = score_restriction_recipe(meal_scored, restriction_criteria)
+    return restriction_scored
+
 # Function used to take input of three given result name lists and compare the contents to find top results.
 # ACCEPTS: LIST (a, cuisines_tracked), LIST (b, prices_tracked), LIST (c, restrictions_tracked) 
 # RETURNS: LIST (top_recommendations)
@@ -210,11 +303,18 @@ def find_top_recommendation(a, b, c, d):
         top = []
 
     print(str(len(top)))
-    if (not top) or (len(top) < 10):
+    if len(top) < 10:
         print("Made it in")
         top_alt = set.intersection(*map(set,all_lists))
 
-    if (not top_alt) or (len(top_alt) < 10):
+    print(str(len(top_alt)))
+    if len(top_alt) > len(top):
+        top = top_alt
+        top_alt = []
+    else:
+        top_alt = []
+
+    if len(top) < 5:
         print("Results are Narrow, defaulting to cuisines")
         top = a
         #for l in initial_lists:
