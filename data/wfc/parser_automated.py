@@ -207,6 +207,92 @@ def apiLoad():
 
     with open("./wfc/results/restaurant_by_restriction.json", "w") as write_file:
         data = json.dump(restaurants_by_restriction, write_file)
+ 
+def loadRecipes():
+    with open("./wfc/cuisine_reference.json", "r") as read_file:
+        temp_cuisine = json.load(read_file)
+    cuisine_reference = temp_cuisine["data"]
 
+    with open("./wfc/restriction_reference.json", "r") as read_file:
+        temp_restriction = json.load(read_file)
+    restriction_reference = temp_restriction["data"]
 
-localLoad()
+    with open("./wfc/Recipe/Recipe.json", "r") as read_file:
+        temp_recipe = json.load(read_file)
+    recipe = temp_recipe
+
+    recipe_info = []
+    cuisine_info = []
+    restriction_info = []
+
+    i = 77
+    mapr = 114
+    mapc = 67
+
+    for r in recipe:
+        entry = {}
+        cuisine = {}
+        restriction = {}
+
+        if 'ad_size' in r:
+            continue
+
+        print("Entry is not an ad, continue.")
+
+        cuisine['recipe_id'] = i
+        restriction['recipe_id'] = i
+
+        reference = r["recipe"]
+
+        entry["recipe_id"] = i
+        entry["label"] = reference["label"]
+        entry["source"] = reference["url"].split(".")[1]
+        entry["url"] = reference["url"]
+        entry["yield"] = reference["yield"]
+        total_restriction = reference["dietLabels"] + reference["healthLabels"]
+        searched_restriction = ["Vegetarian", "Vegan", "Low-Carb", "Low-Fat", "Low-Sodium", "Balanced", "High-Fiber", "Dairy-Free", "Peanut-Free", "High-Protein"]
+        applied_restriction = []
+        for x in total_restriction:
+            if x in searched_restriction:
+                if x == "south east asian":
+                    x = "Asian"
+                applied_restriction.append(x)
+        entry["dietLabels"] = " ".join(applied_restriction)
+        entry["calories"] = reference["calories"]
+        total_cuisine = reference["cuisineType"]
+        cuitype_ref = ", ".join(total_cuisine)
+        entry["cuisineType"] = cuitype_ref.title()
+        mealtype_ref = ", ".join(reference["mealType"])
+        entry["mealType"] = mealtype_ref.title()
+        try:
+            dishtype_ref = ", ".join(reference["dishType"])
+        except KeyError:
+            dishtype_ref = "main course"
+        entry["dishType"] = dishtype_ref
+
+        for c in cuisine_reference:
+            for ct in total_cuisine:
+                uct = ct.title()
+                if uct == c["label"]:
+                    cuisine_info.append({"map_id": mapc, "recip_id": i, "cuisi_id": c["restaurant_id"]})
+                    mapc = mapc + 1
+
+        
+        for rest in restriction_reference:
+            for cr in total_restriction:
+                if cr == rest["label"]:
+                    restriction_info.append({"map_id": mapr, "recip_id": i, "restr_id": rest["restriction_id"]})
+                    mapr = mapr + 1
+        
+        recipe_info.append(entry)
+    
+        i = i + 1
+    
+    with open("./wfc/Recipe/RecipeFinal.json", "w") as write_file:
+        data = json.dump(recipe_info, write_file)
+    
+    with open("./wfc/Recipe/recipe_by_cuisine.json", "w") as write_file:
+        data = json.dump(cuisine_info, write_file)
+
+    with open("./wfc/Recipe/recipe_by_restriction.json", "w") as write_file:
+        data = json.dump(restriction_info, write_file)
